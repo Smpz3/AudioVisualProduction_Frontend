@@ -4,8 +4,14 @@ export default function NavBar() {
         <ul> 
             <li>
                 <a href="/shows">Shows</a>
+            </li>
+            <li>
                 <a href="/audio">Audio</a>
+            </li>
+            <li>
                 <a href="/store">Store</a>
+            </li>
+            <li>
                 <a href="/haracters">Characters</a>
             </li>
         </ul>

@@ -1,0 +1,19 @@
+*
+{
+    box-sizing: border-box;
+}
+body { 
+    margin:0
+}
+.nav { 
+    background-color: aliceblue;
+    color: white; 
+    display:flex; 
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 1 rem;
+}
+.nav a { 
+    color: inherit
+}
