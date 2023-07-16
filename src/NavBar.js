@@ -12,7 +12,7 @@ export default function NavBar() {
                 <a href="/store">Store</a>
             </li>
             <li>
-                <a href="/haracters">Characters</a>
+                <a href="/characters">Characters</a>
             </li>
         </ul>
     </nav>
