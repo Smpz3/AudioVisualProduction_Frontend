@@ -21,7 +21,7 @@ header {
     color: var(--textColor); 
 }
  
-nav a { 
+nav a{ 
     margin: 0 1rem; 
     color: var(--textColor); 
     text-decoration: none;
@@ -47,13 +47,12 @@ header div, nav {
 
 @media only screen and (max-width: 1024px){
     header .nav-btn {
-visibility: visible;
-opacity: 1; 
-
+    visibility: visible;
+    opacity: 1; 
     }
     header nav {
         position: fixed;
-        top: -100vh; 
+        top: 0; 
         left:0; 
         height: 100%; 
         width: 100%; 
@@ -64,11 +63,11 @@ opacity: 1;
         gap: 1.5rem;
         background-color: var(--mainColor); 
         transition: 1s;
-        
+        transform: translateY(10vh);
     }
-    
+
     header.responsive_nav {
-    transform: translateY(100vh);
+    transform: none;
     }
 nav .nav-close-btn {
 position: absolute;
