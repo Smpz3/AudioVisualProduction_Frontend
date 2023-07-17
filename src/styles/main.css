@@ -45,7 +45,7 @@ header .nav-btn {
 }
 header div, nav {
  display: flex;
-    align-items: center;
+ align-items: center;
 }
 
 @media only screen and (max-width: 1024px){
@@ -69,9 +69,11 @@ header div, nav {
         transform: translateY(10vh);
     }
 
-    header.responsive_nav {
-    transform: none;
-    }
+    
+    header .responsive_nav {
+            transform: translateY(100vh);
+        }
+    
 nav .nav-close-btn {
 position: absolute;
 top: 2rem; 

@@ -3,7 +3,7 @@ import { FaTimes, FaBars } from "react-icons/fa";
 import "../styles/main.css"; 
 
 function NavBar() {
-    const navRef = useRef(); 
+    const navRef = useRef();
 
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive_nav");
@@ -27,4 +27,6 @@ function NavBar() {
         </header>
     );
 }
-export default NavBar; 
+    
+        
+    export default NavBar;
