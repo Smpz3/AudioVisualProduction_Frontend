@@ -1,9 +1,10 @@
 :root {
-    --mainColor: pink;
-    --mainColorLight: rgb(66, 12, 21);
-    --secondaryColor: red;
-    --textColor: darkblue;
+    --mainColor: black;
+    --mainColorLight: #DCB44D;
+    --secondaryColor: #5CE1E6;
+    --textColor: #ff66c4;
 }
+
 
 .card {
     color: var(--mainColorLight);
