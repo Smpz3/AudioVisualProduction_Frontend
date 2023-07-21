@@ -20,7 +20,7 @@ const Register = () => {
         navigate('/pages/admin/login');
     };
 
-    return <form onSubmit={handleSubmit(sendForm)} className="">
+    return <form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
         <div className="mb-3">
             <label className="form-label">Name</label>
             <input
