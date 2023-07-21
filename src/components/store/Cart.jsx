@@ -9,7 +9,7 @@ const Cart = ({ products, deletedProduct }) => {
             {products?.map((prod, index) => (
                 <li className="list-group-item d-flex justify-content-between" key={index}>
                     {prod.name}, {prod.units}uds.  x {prod.price}€
-                    <button className="btn btn-danger" onClick={() => deletedProduct(index)}>Eliminar</button></li>
+                    <button className="btn btn-danger" onClick={() => deletedProduct(index)}>Delete</button></li>
             ))}
         </ul>
     </div>;
