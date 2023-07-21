@@ -10,7 +10,7 @@ import Characters from './pages/Characters';
 import Register from './pages/admin/Register';
 import Login from './pages/admin/Login';
 import Shows from './pages/Shows';
-// import Audios from './pages/Audios';
+import Audios from './pages/Audios';
 
 
 const queryClient = new QueryClient();
@@ -24,7 +24,7 @@ function App() {
         <div className='container'>
           <Routes>
             <Route path='/pages/shows' element={<Shows />} />
-            {/* <Route path='/pages/audios' element={<Audios />} /> */}
+            <Route path='/pages/audios' element={<Audios />} />
             <Route path='/pages/characters' element={<Characters />} />
             <Route path='/pages/store' element={<Store />} />
             <Route path='/pages/admin/register' element={<Register />} />
