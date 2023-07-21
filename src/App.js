@@ -1,15 +1,19 @@
 import React from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter,  Route,  Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 
 function App() {
   return (
     <BrowserRouter>
       <NavBar /> 
+      <Routes> 
+        <Route path='/' element={<Shows />}>
+        <Route path='/' element={<Characters />}>
 
-      
+        </Route>
+      </Routes > 
       <div className="page-container">
         <div className="content-wrap">
           
