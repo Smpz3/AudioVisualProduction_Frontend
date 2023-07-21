@@ -16,8 +16,10 @@ function NavBar() {
             <nav ref={navRef}>
                 <a href="/#">Shows</a>
                 <a href="/#">Audios</a>
-                <a href="/#">Characters</a>
+                <a href="/pages/characters">Characters</a>
                 <a href="/pages/store">Store</a>
+                <a href="/pages/admin/register">Register</a>
+                <a href="/pages/admin/login">Login</a>
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>
                     <FaTimes />
                 </button>

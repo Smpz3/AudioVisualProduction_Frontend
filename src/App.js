@@ -4,6 +4,9 @@ import NavBar from './components/NavBar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
 import Store from './pages/Store';
+import Characters from './pages/Characters';
+import Register from './pages/admin/Register';
+import Login from './pages/admin/Login';
 
 function App() {
   return (
@@ -13,7 +16,10 @@ function App() {
       <Routes>
         {/* <Route path='/' element={<Shows />} />
         <Route path='/' element={<Characters />} /> */}
+        <Route path='/pages/characters' element={<Characters />} />
         <Route path='/pages/store' element={<Store />} />
+        <Route path='/pages/admin/register' element={<Register />} />
+        <Route path='/pages/admin/login' element={<Login />} />
       </Routes >
       <div className="page-container">
         <div className="content-wrap">
