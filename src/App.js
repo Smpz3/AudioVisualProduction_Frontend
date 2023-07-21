@@ -8,11 +8,11 @@ function App() {
   return (
     <BrowserRouter>
       <NavBar />
+
       <Routes>
         <Route path='/' element={<Shows />} />
         <Route path='/' element={<Characters />} />
-
-        {/* </Route> */}
+        <Route path='/store' element={<Store />} />
       </Routes >
       <div className="page-container">
         <div className="content-wrap">
