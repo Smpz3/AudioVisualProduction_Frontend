@@ -6,6 +6,8 @@
   box-sizing: border-box;
   font-family: 'Titillium Web', sans-serif;
   background-color: var(--mainColor);
+  
+ 
 }
 
 :root {
@@ -14,15 +16,7 @@
   --secondaryColor: #5CE1E6;
   --textColor: #ff66c4;
 }
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 80px;
-  padding: 0 2rem;
-  background-color: var(--mainColor);
-  color: var(--textColor);
-}
+
 .page-container{ 
 display: flex; 
 flex-direction: column;
@@ -33,7 +27,7 @@ min-height: 100vh;
   flex: 1; 
 }
 
-a{
+a {
   text-decoration: none;
-  color:var(--textColor);
+  color: var(--textColor);
 }
