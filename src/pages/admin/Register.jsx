@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
-import { insertUser } from "../../services/admin.services";
 import { useNavigate } from "react-router";
+import { registerUser } from "../../services/admin.services";
+
 
 
 const Register = () => {
@@ -9,7 +10,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const sendForm = async (values) => {
-        const response = await insertUser(values);
+        const response = await registerUser(values);
         console.log(response);
 
         if (response.fatal) {

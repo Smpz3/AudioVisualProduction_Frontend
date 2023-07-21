@@ -46,7 +46,7 @@ const Store = () => {
     if (status === 'loading') return <h2>Getting products...</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
 
-    console.log(data, status);
+    // console.log(data, status);
 
     const onSelectedProduct = (selectedProduct) => {
 
