@@ -1,0 +1,30 @@
+:root {
+    --mainColor: pink;
+    --mainColorLight: rgb(66, 12, 21);
+    --secondaryColor: red;
+    --textColor: darkblue;
+}
+
+.card {
+    color: var(--mainColorLight);
+    width: 30%;
+    min-width: 200px;
+    background-color: lightgray;
+    padding: 20px;
+    border: 2px solid var(--mainColorLight);
+    /* border-radius: 35px; */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h4 {
+    color: var(--mainColorLight);
+}
+
+.card img {
+    width: 100%;
+    object-fit: cover;
+    height: 100px;
+}

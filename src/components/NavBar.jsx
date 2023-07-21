@@ -1,7 +1,7 @@
-import { useRef } from "react"; 
+import { useRef } from "react";
 import React from 'react';
-import { FaTimes, FaBars } from "react-icons/fa"; 
-import "../styles/main.css"; 
+import { FaTimes, FaBars } from "react-icons/fa";
+import "../styles/main.css";
 //import imageSrc from "../images/Richards_Copy.png";
 function NavBar() {
     const navRef = useRef();
@@ -9,15 +9,15 @@ function NavBar() {
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive_nav");
     };
-        
+
     return (
         <header>
             <h3> The Brightside Productions, LLC </h3>
-            <nav ref = {navRef}>
+            <nav ref={navRef}>
                 <a href="/#">Shows</a>
                 <a href="/#">Audios</a>
                 <a href="/#">Characters</a>
-                <a href="/#">Store</a>
+                <a href="/store">Store</a>
                 <button className="nav-btn nav-close-btn" onClick={showNavbar}>
                     <FaTimes />
                 </button>
@@ -28,6 +28,6 @@ function NavBar() {
         </header>
     );
 }
-    
-        
-    export default NavBar;
+
+
+export default NavBar;
