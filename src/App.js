@@ -7,6 +7,10 @@ import Store from './pages/Store';
 import Characters from './pages/Characters';
 import Register from './pages/admin/Register';
 import Login from './pages/admin/Login';
+import Shows from './pages/Shows';
+
+
+
 
 function App() {
   return (
@@ -14,8 +18,7 @@ function App() {
       <NavBar />
 
       <Routes>
-        {/* <Route path='/' element={<Shows />} />
-        <Route path='/' element={<Characters />} /> */}
+        <Route path='/pages/shows' element={<Shows />} />
         <Route path='/pages/characters' element={<Characters />} />
         <Route path='/pages/store' element={<Store />} />
         <Route path='/pages/admin/register' element={<Register />} />

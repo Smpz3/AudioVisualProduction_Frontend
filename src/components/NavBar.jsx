@@ -14,8 +14,7 @@ function NavBar() {
         <header>
             <h3> The Brightside Productions, LLC </h3>
             <nav ref={navRef}>
-                <a href="/#">Shows</a>
-                <a href="/#">Audios</a>
+                <a href="/pages/shows">Shows</a>
                 <a href="/pages/characters">Characters</a>
                 <a href="/pages/store">Store</a>
                 <a href="/pages/admin/register">Register</a>
