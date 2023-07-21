@@ -1,6 +1,7 @@
 import { useState } from "react";
-import Cart from "../components/Cart";
-import ProductsList from "../components/ProductsList";
+import ProductsList from "../components/store/ProductsList";
+import Cart from "../components/store/Cart";
+
 
 const product = {
     id: 1,

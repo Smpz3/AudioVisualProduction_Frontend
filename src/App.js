@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Footer from './components/Footer';
+import Store from './pages/Store';
 
 function App() {
   return (
@@ -10,9 +11,9 @@ function App() {
       <NavBar />
 
       <Routes>
-        <Route path='/' element={<Shows />} />
-        <Route path='/' element={<Characters />} />
-        <Route path='/store' element={<Store />} />
+        {/* <Route path='/' element={<Shows />} />
+        <Route path='/' element={<Characters />} /> */}
+        <Route path='/pages/store' element={<Store />} />
       </Routes >
       <div className="page-container">
         <div className="content-wrap">
