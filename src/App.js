@@ -9,10 +9,10 @@ function App() {
     <BrowserRouter>
       <NavBar /> 
       <Routes> 
-        <Route path='/' element={<Shows />}>
-        <Route path='/' element={<Characters />}>
+        <Route path='/' element={<Shows />}/>
+        <Route path='/' element={<Characters />}/>
 
-        </Route>
+     
       </Routes > 
       <div className="page-container">
         <div className="content-wrap">
