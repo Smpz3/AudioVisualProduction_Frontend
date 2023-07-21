@@ -5,25 +5,26 @@ import '../styles/App.css'
 
 const Nav = styled.nav`
   width: 100%;
-  background-color: black;
   border-bottom: 3px solid hotpink;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 `;
 const H3 = styled.h3`
-  
+  font-size:25px; 
+  margin-top: 10px; 
 `; 
 
 const Ul = styled.ul`
   list-style-type: none;
   display: flex;
+  width: 100%; 
   justify-content: center;
   align-items: center;
   gap: 10px;
 `;
 
 const Li = styled.li`
-  width: 200px;
-  height: 50px;
+  width:200px ;
+  height: 40px;
   cursor: pointer;
   display: flex;
   justify-content: center;
