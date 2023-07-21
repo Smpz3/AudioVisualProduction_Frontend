@@ -25,6 +25,7 @@ function App() {
         <Route path='/pages/store' element={<Store />} />
         <Route path='/pages/admin/register' element={<Register />} />
         <Route path='/pages/admin/login' element={<Login />} />
+        <Route path="*" element={<div><p> 404 Not Found </p></div>} />
       </Routes >
       <div className="page-container">
         <div className="content-wrap">
