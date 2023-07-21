@@ -11,6 +11,24 @@ const getProducts = async () => {
     };
 };
 
+const orderByLowerPrice = async () => {
+    try {
+        const response = await axios.get(`${baseUrl}/order/desc`);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    };
+};
+
+const orderByHigherPrice = async () => {
+    try {
+        const response = await axios.get(`${baseUrl}/order/asc`);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    };
+};
+
 export {
-    getProducts
+    getProducts, orderByLowerPrice, orderByHigherPrice
 }
