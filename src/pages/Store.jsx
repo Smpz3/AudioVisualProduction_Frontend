@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useQuery } from "react-query";
+
+import { getProducts } from "../services/store.services";
 import ProductsList from "../components/store/ProductsList";
 import Cart from "../components/store/Cart";
 
@@ -33,11 +36,13 @@ const products = [
     { id: 8, name: 'ultimo', image: 'https://www.topdrinks.es/pub/media/catalog/product/1/9/199.jpg', description: 'Little description of the product', category: 'Stickers', price: 2.50, ref: 'reference', stock: true, units: 1, status: 'Pending', },
 ];
 
+
 const Store = () => {
 
     const [cartProducts, setCartProducts] = useState([]);
 
-
+    const { data, status } = useQuery('products', getProducts);
+    console.log(data, status);
     const onSelectedProduct = (selectedProduct) => {
 
         const selected = cartProducts.findIndex((prod) => prod.name.toLowerCase() === selectedProduct.name.toLowerCase());
@@ -46,7 +51,7 @@ const Store = () => {
             setCartProducts([...cartProducts, selectedProduct]);
         } else {
             const cartProductsCopy = [...cartProducts];
-            // const copiaPS = { ...selectedProduct, unidades: 1 } //aquí he hecho una copia de productoSeleccionado para establecerle las unidades en 1 ya que cada vez que lo clico para añadirlo, añado 1 unidad.
+            // const copiaPS = { ...selectedProduct, units: 1 } //aquí he hecho una copia de selectedProduct para establecerle las unidades en 1 ya que cada vez que lo clico para añadirlo, añado 1 unidad.
             const productCopy = { ...cartProducts[selected], units: cartProducts[selected].units + selectedProduct.units };
             console.log(productCopy);
             cartProductsCopy[selected] = productCopy;
@@ -67,10 +72,11 @@ const Store = () => {
     return <div className="container">
         <div className="row g-5">
             <div className="col-9">
+
                 <ProductsList
                     title='Product-LIST!!!!'
-                    products={products}
-                    selectedProduct={onSelectedProduct}/* para poder pasarle este elemento debo antes modificar el ListaProductos.tsx y decirle que le voy a incluir 'productoSeleccionado' y su función */
+                    products={data}
+                    selectedProduct={onSelectedProduct}
                 />
             </div>
             <div className="col-3">
