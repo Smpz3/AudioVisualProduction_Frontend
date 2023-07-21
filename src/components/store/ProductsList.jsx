@@ -6,11 +6,18 @@ const FlexWrapper = styled.div`
     background-color: whitesmoke;
     padding: 20px;
     border: 1px solid black;
+    border-radius: 0 50px;
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center
+`;
+
+const H2 = styled.h2`
+    font-weight: bold;
+    padding: 20px;
+    /* color: mainColorLight ; */
 `;
 
 
@@ -19,7 +26,7 @@ const ProductsList = ({ title, products, selectedProduct }
 
 
     return <div>
-        <h2>{title}</h2>
+        <H2>{title}</H2>
         <FlexWrapper className="col-12">
             {products &&
                 products.map((prod, index) => (
