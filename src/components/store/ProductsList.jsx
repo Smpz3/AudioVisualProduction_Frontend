@@ -6,6 +6,7 @@ const FlexWrapper = styled.div`
     background-color: whitesmoke;
     padding: 20px;
     border: 1px solid black;
+    border-radius: 0 50px;
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -13,23 +14,28 @@ const FlexWrapper = styled.div`
     justify-content: center
 `;
 
+const H2 = styled.h2`
+    font-weight: bold;
+    padding: 20px;
+    /* color: mainColorLight ; */
+`;
+
 
 const ProductsList = ({ title, products, selectedProduct }
-    //para poder utilizar la función productoSeleccionado en Lista productos se la paso en el destructuring y así la podré usar en el return.
-    // { titulo, productos, productoSeleccionado }: ListaProductosProps
 ) => {
 
 
     return <div>
-        <h2>{title}</h2>
+        <H2>{title}</H2>
         <FlexWrapper className="col-12">
-            {products.map((prod, index) => (
-                <ProductCard
-                    key={index}
-                    product={prod}
-                    selectedProduct={selectedProduct}
-                />
-            ))}
+            {products &&
+                products.map((prod, index) => (
+                    <ProductCard
+                        key={index}
+                        product={prod}
+                        selectedProduct={selectedProduct}
+                    />
+                ))}
         </FlexWrapper>
     </div>;
 }

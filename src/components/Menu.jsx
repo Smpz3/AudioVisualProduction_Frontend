@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import React from "react";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 import '../styles/App.css'
 
 const Nav = styled.nav`
@@ -11,7 +11,7 @@ const Nav = styled.nav`
 const H3 = styled.h3`
   font-size:25px; 
   margin-top: 10px; 
-`; 
+`;
 
 const Ul = styled.ul`
   list-style-type: none;
@@ -34,25 +34,27 @@ const Li = styled.li`
 
 
 
-const items = [ 
-    { path: '/pages/', label: 'Home' }, 
-    { path: '/pages/shows', label: 'Shows' }, 
-    { path: '/pages/characters', label:'Characters' }, 
-    { path: '/pages/audios', label: 'Audios' }, 
-    { path: '/pages/store', label: 'Store' }, 
+const items = [
+  { path: '/pages/', label: 'Home' },
+  { path: '/pages/shows', label: 'Shows' },
+  { path: '/pages/characters', label: 'Characters' },
+  { path: '/pages/audios', label: 'Audios' },
+  { path: '/pages/store', label: 'Store' },
+  { path: '/pages/admin/register', label: 'Register' },
+  { path: '/pages/admin/login', label: 'Login' },
 ]
 
 
 const Menu = () => {
-    return<Nav>
-        <Ul>
-            <H3 style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </H3>
-            {items.map((items, index) => (
-                <Link key={index} to={items.path}>
-                    <Li>{items.label}</Li>
-                </Link>     
-            ))}
-        </Ul>
-    </Nav>; 
+  return <Nav>
+    <Ul>
+      <H3 style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </H3>
+      {items.map((items, index) => (
+        <Link key={index} to={items.path}>
+          <Li>{items.label}</Li>
+        </Link>
+      ))}
+    </Ul>
+  </Nav>;
 }
 export default Menu; 
