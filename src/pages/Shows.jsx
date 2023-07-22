@@ -1,6 +1,6 @@
 import React from 'react'
-import shows from '../components/services/shows.services'; 
-import ReactPlayer from 'react-player'; 
+import shows from '../services/shows.services'
+import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 
 
@@ -14,15 +14,15 @@ const CenteredPlayer = styled.div`
 `;
 
 const Shows = () => {
-    return ( <CenteredPlayer>
-        <h1> Our Shows</h1> 
-    <ReactPlayer
-        light={true}
-        controls={true}
-        url={"https://www.youtube.com/watch?v=c9G36djAH88"}
-        height="500px"
-        width="750px"
-    />
+    return (<CenteredPlayer>
+        <h1> Our Shows</h1>
+        <ReactPlayer
+            light={true}
+            controls={true}
+            url={"https://www.youtube.com/watch?v=c9G36djAH88"}
+            height="500px"
+            width="750px"
+        />
     </CenteredPlayer>
     )
 }
