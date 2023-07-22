@@ -14,6 +14,7 @@ import Audios from './pages/Audios';
 import Home from './pages/Home';
 
 
+
 const queryClient = new QueryClient();
 
 
@@ -25,7 +26,7 @@ function App() {
         <div className='container'>
           <Menu />
           <Routes>
-            <Route path='/pages' element={<Home />} />
+            <Route path='/pages' element={<Home/>} />
             <Route path='/pages/shows' element={<Shows />} />
             <Route path='/pages/audios' element={<Audios />} />
             <Route path='/pages/characters' element={<Characters />} />
