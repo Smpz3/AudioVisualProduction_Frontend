@@ -22,7 +22,6 @@ const Shows = () => {
         url={"https://www.youtube.com/watch?v=c9G36djAH88"}
         height="500px"
         width="750px"
-       
     />
     </CenteredPlayer>
     )

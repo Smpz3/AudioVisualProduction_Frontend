@@ -9,8 +9,7 @@ import Characters from './pages/Characters';
 import Register from './pages/admin/Register';
 import Login from './pages/admin/Login';
 import Shows from './pages/Shows';
-
-
+import Home from './pages/Home';
 
 
 function App() {
@@ -19,6 +18,7 @@ function App() {
       <Menu />
 
       <Routes>
+        <Route path='/pages' element={<Home />} />
         <Route path='/pages/shows' element={<Shows />} />
         <Route path='/pages/characters' element={<Characters />} />
         <Route path='/pages/store' element={<Store />} />
