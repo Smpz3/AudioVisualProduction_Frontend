@@ -12,6 +12,7 @@ import Login from './pages/admin/Login';
 import Shows from './pages/Shows';
 import Audios from './pages/Audios';
 import Home from './pages/Home';
+import UsersList from './pages/UsersList';
 
 
 
@@ -26,13 +27,14 @@ function App() {
         <div className='container'>
           <Menu />
           <Routes>
-            <Route path='/pages' element={<Home/>} />
+            <Route path='/pages' element={<Home />} />
             <Route path='/pages/shows' element={<Shows />} />
             <Route path='/pages/audios' element={<Audios />} />
             <Route path='/pages/characters' element={<Characters />} />
             <Route path='/pages/store' element={<Store />} />
             <Route path='/pages/admin/register' element={<Register />} />
             <Route path='/pages/admin/login' element={<Login />} />
+            <Route path='/pages/usersList' element={<UsersList />} />
             <Route path="*" element={<div><p> 404 Not Found </p></div>} />
           </Routes >
         </div>

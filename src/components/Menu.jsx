@@ -46,6 +46,7 @@ const items = [
   { path: '/pages/store', label: 'Store' },
   { path: '/pages/admin/register', label: 'Register' },
   { path: '/pages/admin/login', label: 'Login' },
+  { path: '/pages/usersList', label: 'UsersList' },
 ]
 
 
