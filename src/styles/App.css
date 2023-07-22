@@ -7,7 +7,6 @@
   font-family: 'Titillium Web', sans-serif;
   background-color: var(--mainColor);
   
- 
 }
 
 :root {
@@ -30,4 +29,7 @@ min-height: 100vh;
 a {
   text-decoration: none;
   color: var(--textColor);
+}
+h1 {
+  color: var(--secondaryColor); 
 }
