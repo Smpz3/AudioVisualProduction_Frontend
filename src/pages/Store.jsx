@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 
-import { getProducts } from "../services/store.services";
+import { getProducts, orderByHigherPrice, orderByLowerPrice } from "../services/store.services";
 import ProductsList from "../components/store/ProductsList";
 import Cart from "../components/store/Cart";
+import Filter from "../components/store/Filter";
 
 
 // const product = {
@@ -42,11 +43,13 @@ const Store = () => {
     const [cartProducts, setCartProducts] = useState([]);
 
     const { data, status } = useQuery('products', getProducts);
+    const { dataLowerFirst, status2 } = useQuery('products', orderByLowerPrice);
+    const { dataHigherFirst, status3 } = useQuery('products', orderByHigherPrice);
 
     if (status === 'loading') return <h2>Getting products...</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
 
-    console.log(data, status);
+    // console.log(data, status);
 
     const onSelectedProduct = (selectedProduct) => {
 
@@ -83,7 +86,8 @@ const Store = () => {
                     selectedProduct={onSelectedProduct}
                 />
             </div>
-            <div className="col-3">
+            <div className="col-3 mt-5 d-block">
+                <Filter products={data} />
                 <Cart
                     products={cartProducts}
                     deletedProduct={onDeletedProduct}
