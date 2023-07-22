@@ -1,6 +1,30 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { loginUser } from "../../services/admin.services";
+import styled from "styled-components";
+
+const Form = styled.form`
+    color: var(--mainColorLight);
+`;
+
+const Input = styled.input`
+    border-radius: 0 20px 0 20px;
+`;
+
+const InputBtn = styled.input`
+    color: var(--textColor);
+    padding: 10px 5px;
+    background-color: var(--mainColor);
+    border-radius: 0 50px 0 50px;
+    width: 50%;
+    :hover{
+        background-color: var(--secondaryColor);
+        color: var(--mainColor);    
+        font-weight: bold;
+    }    
+`;
+
+
 
 const Login = () => {
 
@@ -22,10 +46,10 @@ const Login = () => {
     };
 
 
-    return <form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
+    return <Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
         <div className="mb-3">
             <label className="form-label">Email</label>
-            <input
+            <Input
                 type="email"
                 className="form-control"
                 {...register('email')}
@@ -33,15 +57,15 @@ const Login = () => {
         </div>
         <div className="mb-3">
             <label className="form-label">Password</label>
-            <input
+            <Input
                 type="password"
                 className="form-control"
                 {...register('password')}
             />
         </div>
-        <input className="btn btn-info" type="submit" value="Send" />
+        <InputBtn className="btn btn-info" type="submit" value="Send" />
 
-    </form>;
+    </Form>;
 }
 
 export default Login;

@@ -30,7 +30,10 @@ const Li = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  :hover{
+    color:var(--mainColorLight);
+    border-bottom: 1px solid var(--secondaryColor);
+  }
 `;
 
 
