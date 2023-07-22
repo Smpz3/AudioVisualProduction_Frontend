@@ -8,26 +8,27 @@ const Nav = styled.nav`
   border-bottom: 3px solid hotpink;
   margin-bottom: 10px;
 `;
-const H3 = styled.h3`
-  font-size:25px; 
+const H1 = styled.h1`
+  font-size: 50px; 
   margin-top: 10px; 
 `;
 
 const Ul = styled.ul`
   list-style-type: none;
   display: flex;
+  flex-wrap: wrap;
   width: 100%; 
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 10px;
 `;
 
 const Li = styled.li`
-  width:200px ;
+  width:  auto;
   height: 40px;
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
 `;
@@ -46,15 +47,17 @@ const items = [
 
 
 const Menu = () => {
-  return <Nav>
-    <Ul>
-      <H3 style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </H3>
-      {items.map((items, index) => (
-        <Link key={index} to={items.path}>
-          <Li>{items.label}</Li>
-        </Link>
-      ))}
-    </Ul>
-  </Nav>;
+  return <div className="container">
+    <Nav>
+      <Ul>
+        <H1 style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </H1>
+        {items.map((items, index) => (
+          <Link key={index} to={items.path}>
+            <Li>{items.label}</Li>
+          </Link>
+        ))}
+      </Ul>
+    </Nav>;
+  </div>
 }
 export default Menu; 

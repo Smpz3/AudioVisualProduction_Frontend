@@ -1,18 +1,26 @@
 import styled from "styled-components";
 import { useQuery } from "react-query";
 import { getCharacters } from "../services/characters.services";
-import styles from '../styles/characters.css'
+import CharCard from "../components/characters/CharCard";
+
 
 const FlexWrapper = styled.div`
-    background-color: whitesmoke;
+    background-color: var(--mainColor);
+    color: var(--textColor);
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid var(--secondaryColor);
     border-radius: 0 50px;
     margin: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center
+`;
+
+const H2 = styled.h2`
+    padding-left: 30px;
+    color: var(--secondaryColor);
+    margin: 30px 0;
 `;
 
 const Characters = () => {
@@ -23,16 +31,14 @@ const Characters = () => {
     if (status === 'error') return <h2>Download failed</h2>;
 
     return <div className="container">
-        <h2>Characters</h2>
+        <H2>Meet Our Characters</H2>
         <FlexWrapper className="col-12">
             {data &&
                 data.map((char, index) => (
-                    <FlexWrapper key={index}>
-                        <h4>{char.name}</h4>
-                        <img src={char.image} alt="Character" />
-                        <p>{char.program_id}</p>
-                        <button className="btn btn-info">Fav</button>
-                    </FlexWrapper>
+                    <CharCard
+                        key={index}
+                        character={char}
+                    />
                 ))}
         </FlexWrapper>
     </div>

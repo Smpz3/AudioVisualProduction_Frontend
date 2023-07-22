@@ -78,8 +78,8 @@ const Store = () => {
 
 
     return <div className="container">
-        <div className="row g-5">
-            <div className="col-9">
+        <div className="row g-5 mt-1">
+            <div className="col-9 mt-0">
                 <ProductsList
                     title='Get your favourite Sticker!!'
                     products={data}
