@@ -15,9 +15,8 @@ const FlexWrapper = styled.div`
 `;
 
 const H2 = styled.h2`
-    font-weight: bold;
     padding: 20px;
-    /* color: mainColorLight ; */
+    color: var(--secondaryColor)
 `;
 
 

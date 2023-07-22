@@ -11,10 +11,11 @@
     color: var(--mainColorLight);
     width: 30%;
     min-width: 200px;
+    max-width: 250px;
     padding: 20px;
     border: 2px solid var(--mainColorLight);
     border-radius: 0 50px 0 50px;
-
+    gap: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -30,15 +31,15 @@
     border-radius: 50px;
 }
 
-.addBtn {
+.addFav {
+    color: var(--textColor);
     padding: 10px 5px;
     background-color: var(--mainColor);
-    color: var(--textColor);
     border-radius: 0 50px 0 50px;
     width: 50%;
 }
 
-.addBtn:hover {
-    background-color: white;
+.addFav:hover {
+    background-color: var(--secondaryColor);
     font-weight: bold;
 }
