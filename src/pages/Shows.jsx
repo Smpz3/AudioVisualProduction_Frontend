@@ -15,7 +15,7 @@ const CenteredPlayer = styled.div`
 
 const Shows = () => {
     return ( <CenteredPlayer>
-        <h1> Our Shows</h1> 
+        <h1> Our Shows!</h1> 
     <ReactPlayer
         light={true}
         controls={true}
