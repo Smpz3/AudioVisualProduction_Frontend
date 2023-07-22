@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import './styles/App.css';
+import Menu from './components/Menu';
 
-import './App.css';
-import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Store from './pages/Store';
 import Characters from './pages/Characters';
@@ -11,18 +11,21 @@ import Register from './pages/admin/Register';
 import Login from './pages/admin/Login';
 import Shows from './pages/Shows';
 import Audios from './pages/Audios';
+import Home from './pages/Home';
 
 
 const queryClient = new QueryClient();
+
 
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <NavBar />
         <div className='container'>
+          <Menu />
           <Routes>
+            <Route path='/pages' element={<Home />} />
             <Route path='/pages/shows' element={<Shows />} />
             <Route path='/pages/audios' element={<Audios />} />
             <Route path='/pages/characters' element={<Characters />} />

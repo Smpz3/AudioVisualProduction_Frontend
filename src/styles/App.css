@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Handlee&family=Montserrat:ital,wght@0,400;0,700;1,400&family=Titillium+Web:wght@300;400;700&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Titillium Web', sans-serif;
+  background-color: var(--mainColor);
+  
+}
+
+:root {
+  --mainColor: black;
+  --mainColorLight: #DCB44D;
+  --secondaryColor: #5CE1E6;
+  --textColor: #ff66c4;
+}
+
+.page-container{ 
+display: flex; 
+flex-direction: column;
+min-height: 100vh; 
+
+}
+.content-wrap{
+  flex: 1; 
+}
+
+a {
+  text-decoration: none;
+  color: var(--textColor);
+}
+h1 {
+  color: var(--secondaryColor); 
+}
