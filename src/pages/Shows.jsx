@@ -1,5 +1,4 @@
 import React from 'react'
-import shows from '../components/services/shows.services'; 
 import ReactPlayer from 'react-player'; 
 import styled from 'styled-components';
 

@@ -5,110 +5,79 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-const H2 = styled.h2`
-colorcolor: var(--secondaryColor);
-`; 
-const StyledP = styled.p`
-color: var(--textColor); 
-width: 300px; 
-height: 170px; 
-padding: 10px; 
+  justify-content: space-between;; 
+  margin-top: 10px; 
+  height: 100%; 
 `;
 
-const PictureInput = styled.input`
-  margin-bottom: 10px;
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; 
+  border-top: 2px solid pink; 
 `;
 
-const SocialMediaInput = styled.input`
-  margin-bottom: 20px;
-`;
 
 const Image = styled.img`
   width: 200px;
-  height: 150px;
-  margin-bottom: 10px;
+  height: 190px;
+  margin: 10px;
 `;
 
-const SocialMediaLink = styled.a`
-  margin-bottom: 20px;
+const Text = styled.p`
+  font-size: 18px;
+  color: var(--secondaryColor);
+  text-align: center;
+
 `;
+const Line = styled.div`
+  width: 20%;
+  height: 2px;
+  background-color: pink;
+  margin: 20px 0;
+`;
+
+const Title = styled.h3`
+  font-size: 24px;
+  margin-top: 20px;
+  color: var(--secondaryColor); 
+  display: flex; 
+`;
+
+const image1URL = "https://media.licdn.com/dms/image/D4E03AQFQ_O2xZmohLw/profile-displayphoto-shrink_200_200/0/1673061580437?e=1695254400&v=beta&t=vIxS8L68XYG0ueY7HA-h68EOiR25JMVEnU5wpSYmhcM";
+const image2URL = "https://drive.google.com/uc?id=1oX6Xa46YMzWfwRWYUToFZJc5SH_7OO3n";
+const image3URL = "https://drive.google.com/uc?id=1F7yj6K5Vhx5xEbmkjoUgHxGAp-HVkU5W ";
+const image4URL = "https://drive.google.com/uc?id=1q3J0ksBMjzBLvjHnB4XTKdtsj-qLxV14 ";
 
 const Home = () => {
-    const [picture1, setPicture1] = useState('/Users/sofia/Documents/AudioVisualProduction_folder/audio_visual_production/src/images/Richards_Copy.png');
-    const [picture2, setPicture2] = useState('');
-    const [picture3, setPicture3] = useState('');
-    const [socialMediaLink1, setSocialMediaLink1] = useState('https://www.instagram.com/thebrightsideproductionsllc/?hl=es');
-    const [socialMediaLink2, setSocialMediaLink2] = useState('');
-    const [socialMediaLink3, setSocialMediaLink3] = useState('');
+    
 
     return (
         <Container>
-            <h1>Welcome!</h1>
-            <H2>About us:</H2>
-            <StyledP>This is the company info. like when it started etc. Our research mission. what services we provide. just want to know how far out this goes really </StyledP>
-            <PictureInput
-                type="text"
-                placeholder="Picture URL 1"
-                value={picture1}
-                onChange={(e) => setPicture1(e.target.value)}
-            />
-            <SocialMediaInput
-                type="text"
-                placeholder="Instagram"
-                value={socialMediaLink1}
-                onChange={(e) => setSocialMediaLink1(e.target.value)}
-            />
-            {picture1 && (
+            <Title> <h3> Welcome! Learn more about us here:</h3>
+            </Title>
+            
+            <ImageContainer>
                 <div>
-                    <Image src={picture1} alt="Picture 1" />
-                    <SocialMediaLink href={socialMediaLink1} target="_blank" rel="noopener noreferrer">
-                        Social Media Link 1
-                    </SocialMediaLink>
+                    <Image src={image1URL} alt="Image 1" />
+                    <Text>We are the brightside productions. Started in 2021. </Text>
                 </div>
-            )}
-
-            <PictureInput
-                type="text"
-                placeholder="Picture URL 2"
-                value={picture2}
-                onChange={(e) => setPicture2(e.target.value)}
-            />
-            <SocialMediaInput
-                type="text"
-                placeholder="Social Media Link 2"
-                value={socialMediaLink2}
-                onChange={(e) => setSocialMediaLink2(e.target.value)}
-            />
-            {picture2 && (
+                <Line/>
                 <div>
-                    <Image src={picture2} alt="Picture 2" />
-                    <SocialMediaLink href={socialMediaLink2} target="_blank" rel="noopener noreferrer">
-                        Social Media Link 2
-                    </SocialMediaLink>
+                    <Image src={image2URL} alt="Image 2" />
+                    <Text>Our mission is to educate thorugh media in all forms. </Text>
                 </div>
-            )}
-
-            <PictureInput
-                type="text"
-                placeholder="Picture URL 3"
-                value={picture3}
-                onChange={(e) => setPicture3(e.target.value)}
-            />
-            <SocialMediaInput
-                type="text"
-                placeholder="Social Media Link 3"
-                value={socialMediaLink3}
-                onChange={(e) => setSocialMediaLink3(e.target.value)}
-            />
-            {picture3 && (
-                <div>
-                    <Image src={picture3} alt="Picture 3" />
-                    <SocialMediaLink href={socialMediaLink3} target="_blank" rel="noopener noreferrer">
-                        Social Media Link 3
-                    </SocialMediaLink>
-                </div>
-            )}
+            </ImageContainer>
+            <div>
+                <Image src={image3URL} alt="Image 3" />
+                <Text>We bridge the gap between evidence based mental health research and the public through media distribution.</Text>
+            </div>
+            <div>
+                <Image src={image4URL} alt="Image 4" />
+                <Text>More info here </Text>
+            </div>
+            
         </Container>
     );
 };
