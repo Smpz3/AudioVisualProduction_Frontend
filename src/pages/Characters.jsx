@@ -27,7 +27,7 @@ const Characters = () => {
 
     const { data, status } = useQuery('characters', getCharacters);
 
-    if (status === 'loading') return <h2>Getting Characters...</h2>;
+    if (status === 'loading') return <h2>Getting Characters..</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
 
     return <div className="container">
