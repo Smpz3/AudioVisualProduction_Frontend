@@ -37,8 +37,6 @@ const Li = styled.li`
   }
 `;
 
-
-
 const items = [
   { path: '/', label: 'Home', logged: false },
   { path: '/pages/shows', label: 'Shows', logged: false },
@@ -52,25 +50,19 @@ const items = [
 ];
 
 
-
-
 const Menu = () => {
 
   const navigate = useNavigate();
 
   const onLogout = () => {
 
-    if (localStorage.getItem('user_token')) {
+    const drop = window.confirm('You are going to logout. Are you sure?');
 
-      const drop = window.confirm('You are going to logout. Are you sure?');
-
-      if (drop) {
-        localStorage.removeItem('user_token');
-        navigate('/pages/');
-        navigate(0);
-      };
+    if (drop) {
+      localStorage.removeItem('user_token');
+      navigate('/');
+      navigate(0);
     };
-
   };
 
   return <div className="container">
@@ -85,9 +77,11 @@ const Menu = () => {
             </Link>
           }
         })}
-        <NavLink onClick={onLogout}>
-          <Li>Logout</Li>
-        </NavLink>
+        {isLogged() && (
+          <NavLink onClick={onLogout}>
+            <Li>Logout</Li>
+          </NavLink>
+        )}
       </Ul>
     </Nav>;
   </div>
