@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import { loginUser } from "../../services/admin.services";
 import styled from "styled-components";
 import Swal from "sweetalert2";
+import styles from './Register.module.css'
 
 const Form = styled.form`
     color: var(--mainColorLight);
@@ -26,7 +27,6 @@ const InputBtn = styled.input`
 `;
 
 
-
 const Login = () => {
 
     const { register, handleSubmit } = useForm();
@@ -42,12 +42,6 @@ const Login = () => {
         }
 
         localStorage.setItem('user_token', response.token);
-
-        if (response.success) {
-            await Swal.fire({ title: 'Login success!', text: response.success, icon: 'success' });
-            navigate('/pages/admin/login');
-        };
-
         navigate('/pages/store');
     };
 

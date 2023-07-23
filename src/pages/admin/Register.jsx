@@ -39,10 +39,9 @@ const Register = () => {
             return alert(response.fatal);
         }
 
-        if (response.success) {
-            await Swal.fire({ title: 'Register correct', text: data.success, icon: 'success' });
-            navigate('/pages/admin/login');
-        };
+        alert('Register Success');
+
+        navigate('/pages/admin/login');
 
     };
 
