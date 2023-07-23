@@ -40,7 +40,7 @@ const Li = styled.li`
 
 
 const items = [
-  { path: '/pages/', label: 'Home', logged: false },
+  { path: '/', label: 'Home', logged: false },
   { path: '/pages/shows', label: 'Shows', logged: false },
   { path: '/pages/characters', label: 'Characters', logged: false },
   { path: '/pages/audios', label: 'Audios', logged: false },
