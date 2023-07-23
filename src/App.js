@@ -13,6 +13,8 @@ import Shows from './pages/Shows';
 import Audios from './pages/Audios';
 import Home from './pages/Home';
 import UsersList from './pages/UsersList';
+import ProtectedRoute from './components/ProtectedRoute';
+import Profile from './pages/Profile';
 
 
 
@@ -34,7 +36,10 @@ function App() {
             <Route path='/pages/store' element={<Store />} />
             <Route path='/pages/admin/register' element={<Register />} />
             <Route path='/pages/admin/login' element={<Login />} />
-            <Route path='/pages/usersList' element={<UsersList />} />
+            <Route element={<ProtectedRoute redirectPath='/pages/admin/login' />}>
+              <Route path='/pages/usersList' element={<UsersList />} />
+              <Route path='/pages/profile' element={<Profile />} />
+            </Route>
             <Route path="*" element={<div><p> 404 Not Found </p></div>} />
           </Routes >
         </div>
