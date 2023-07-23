@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { loginUser } from "../../services/admin.services";
 import styled from "styled-components";
+import Swal from "sweetalert2";
 
 const Form = styled.form`
     color: var(--mainColorLight);
@@ -41,6 +42,11 @@ const Login = () => {
         }
 
         localStorage.setItem('user_token', response.token);
+
+        if (response.success) {
+            await Swal.fire({ title: 'Login success!', text: response.success, icon: 'success' });
+            navigate('/pages/admin/login');
+        };
 
         navigate('/pages/store');
     };

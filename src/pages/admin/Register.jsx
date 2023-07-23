@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { registerUser } from "../../services/admin.services";
 import styled from "styled-components";
+import Swal from "sweetalert2";
 
 const Form = styled.form`
     color: var(--mainColorLight);
@@ -38,7 +39,11 @@ const Register = () => {
             return alert(response.fatal);
         }
 
-        navigate('/pages/admin/login');
+        if (response.success) {
+            await Swal.fire({ title: 'Register correct', text: data.success, icon: 'success' });
+            navigate('/pages/admin/login');
+        };
+
     };
 
     return <Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
