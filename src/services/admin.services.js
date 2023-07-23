@@ -33,6 +33,7 @@ const isLogged = () => {
     return localStorage.getItem('user_token') ? true : false;
 };
 
+
 export {
     registerUser, loginUser, getUsers, isLogged
 }
