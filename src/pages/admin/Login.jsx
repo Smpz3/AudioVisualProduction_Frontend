@@ -2,8 +2,6 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { loginUser } from "../../services/admin.services";
 import styled from "styled-components";
-import Swal from "sweetalert2";
-import styles from './Register.module.css'
 
 const Form = styled.form`
     color: var(--mainColorLight);

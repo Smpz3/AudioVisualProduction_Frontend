@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { useQuery } from "react-query";
 import { getProfile } from "../services/users.services";
 
-
 const FlexWrapper = styled.div`
     background-color: var(--mainColor);
     color: var(--textColor);
@@ -24,8 +23,11 @@ const H2 = styled.h2`
 
 const Profile = () => {
 
-    const { data, status } = useQuery('profile', getProfile);
+    /* const { empleadoId } = useParams(); */
+    /* console.log(empleadoId) */
 
+    const { data, status } = useQuery('profile', getProfile);
+    /* console.log(data) */
     if (status === 'loading') return <h2>Getting Characters..</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
 

@@ -15,6 +15,7 @@ import Home from './pages/Home';
 import UsersList from './pages/UsersList';
 import ProtectedRoute from './components/ProtectedRoute';
 import Profile from './pages/Profile';
+import UpdateProfile from './pages/profile/UpdateProfile';
 
 
 
@@ -39,6 +40,7 @@ function App() {
             <Route element={<ProtectedRoute redirectPath='/pages/admin/login' />}>
               <Route path='/pages/usersList' element={<UsersList />} />
               <Route path='/pages/profile' element={<Profile />} />
+              <Route path='/pages/profile/edit/:userID' element={<UpdateProfile />} />
             </Route>
             <Route path="*" element={<div><p> 404 Not Found </p></div>} />
           </Routes >
