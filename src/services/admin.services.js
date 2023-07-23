@@ -29,6 +29,10 @@ const getUsers = async (values) => {
     };
 };
 
+const isLogged = () => {
+    return localStorage.getItem('user_token') ? true : false;
+};
+
 export {
-    registerUser, loginUser, getUsers
+    registerUser, loginUser, getUsers, isLogged
 }

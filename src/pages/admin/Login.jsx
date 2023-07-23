@@ -40,7 +40,7 @@ const Login = () => {
             return alert(response.fatal);
         }
 
-        // localStorage.setItem('user_token', response.token);
+        localStorage.setItem('user_token', response.token);
 
         navigate('/pages/store');
     };
