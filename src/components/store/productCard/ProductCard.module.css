@@ -1,0 +1,44 @@
+:root {
+    --mainColor: black;
+    --mainColorLight: #DCB44D;
+    --secondaryColor: #5CE1E6;
+    --textColor: #ff66c4;
+}
+
+
+.card {
+    background-color: var(--mainColor);
+    color: var(--mainColorLight);
+    width: 30%;
+    min-width: 200px;
+    padding: 20px;
+    border: 2px solid var(--mainColorLight);
+    border-radius: 0 50px 0 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h4 {
+    color: var(--mainColorLight);
+}
+
+.card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.addBtn {
+    padding: 10px 5px;
+    background-color: var(--mainColor);
+    color: var(--textColor);
+    border-radius: 0 50px 0 50px;
+    width: 50%;
+}
+
+.addBtn:hover {
+    background-color: white;
+    font-weight: bold;
+}

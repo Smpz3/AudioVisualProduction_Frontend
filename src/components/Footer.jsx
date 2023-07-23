@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/footer.css'; 
+import '../styles/footer.css';
 
 
 const Footer = () => {
@@ -13,16 +13,16 @@ const Footer = () => {
                         </a>
                         <a className="socials" href="https://youtube.com/" target="_blank">
                             <ion-icon name="logo-youtube"></ion-icon>
-                        </a> 
+                        </a>
                         <a className="socials" href="https://www.linkedin.com/company/the-brightside-productions-llc" target="_blank">
                             <ion-icon name="logo-linkedin"></ion-icon>
-                        </a> 
+                        </a>
 
 
                     </p>
-</div>
+                </div>
             </div>
         </div>
     )
-} 
+}
 export default Footer; 

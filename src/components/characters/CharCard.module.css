@@ -1,0 +1,45 @@
+:root {
+    --mainColor: black;
+    --mainColorLight: #DCB44D;
+    --secondaryColor: #5CE1E6;
+    --textColor: #ff66c4;
+}
+
+
+.card {
+    background-color: var(--mainColor);
+    color: var(--mainColorLight);
+    width: 30%;
+    min-width: 200px;
+    max-width: 250px;
+    padding: 20px;
+    border: 2px solid var(--mainColorLight);
+    border-radius: 0 50px 0 50px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h4 {
+    color: var(--mainColorLight);
+}
+
+.card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
+.addFav {
+    color: var(--textColor);
+    padding: 10px 5px;
+    background-color: var(--mainColor);
+    border-radius: 0 50px 0 50px;
+    width: 50%;
+}
+
+.addFav:hover {
+    background-color: var(--secondaryColor);
+    font-weight: bold;
+}
