@@ -20,9 +20,9 @@ const loginUser = async (values) => {
     };
 };
 
-const getUsers = async () => {
+const getUsers = async (values) => {
     try {
-        const response = await axios.get(baseUrl);
+        const response = await axios.get(baseUrl, values);
         return response.data;
     } catch (error) {
         return error.message;

@@ -32,7 +32,7 @@ const UsersList = () => {
     if (status === 'error') return <h2>Download failed</h2>;
 
     return <div className="container">
-        <H2>Users {data && data.length}</H2>
+        <H2>Users: {data && data.length}</H2>
         <Table>
             <thead>
                 <tr>
