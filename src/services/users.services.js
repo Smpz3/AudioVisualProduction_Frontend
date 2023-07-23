@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseUrl = 'http://localhost:3000/api/users/:userID'
+const baseUrl = 'http://localhost:3000/api/users/'
 
 const getProfile = async (values) => {
     try {
@@ -20,8 +20,18 @@ const getById = async (userID) => {
     } catch (error) {
         return error.message;
     };
-}
+};
+
+const updateUser = async (userID, values) => {
+    try {
+        const response = await axios.put(`${baseUrl}/${userID}`, values);
+        console.log(response.data);
+        return response.data;
+    } catch (error) {
+        return error.message;
+    };
+};
 
 export {
-    getProfile, getById
+    getProfile, getById, updateUser
 }
