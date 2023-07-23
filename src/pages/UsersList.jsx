@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import { getUsers } from "../services/admin.services";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Table = styled.table`
 margin: 0 auto;
@@ -11,7 +12,7 @@ width: 90%;
         color: var(--textColor);
     }
     td {
-    width: 20%;
+    flex-wrap: wrap;
     }
     tr{
         height:25px;
@@ -21,6 +22,18 @@ width: 90%;
 const H2 = styled.h2`
 color: var(--secondaryColor);
 margin: 30px;
+`;
+
+const EditBtn = styled.button`
+    color: var(--textColor);
+    padding: 10px 5px;
+    background-color: var(--mainColor);
+    border-radius: 0 50px 0 50px;
+    width: 100%;
+    :hover{
+        background-color: var(--secondaryColor);
+        color: var(--mainColor);    
+    }    
 `;
 
 
@@ -42,6 +55,7 @@ const UsersList = () => {
                     <th>DNI</th>
                     <th>Address</th>
                     <th>Phone</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -53,6 +67,11 @@ const UsersList = () => {
                         <td>{user.dni}</td>
                         <td>{user.address}</td>
                         <td>{user.phone}</td>
+                        <td>
+                            <Link to={`/edit/${user.id}`}>
+                                <EditBtn className="btn">Edit</EditBtn>
+                            </Link>
+                        </td>
                     </tr>
                 ))}
             </tbody>

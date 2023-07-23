@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { registerUser } from "../../services/admin.services";
 import styled from "styled-components";
-import Swal from "sweetalert2";
 
 const Form = styled.form`
+    margin-top:50px;
     color: var(--mainColorLight);
 `;
 

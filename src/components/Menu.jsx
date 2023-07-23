@@ -83,7 +83,7 @@ const Menu = () => {
           </NavLink>
         )}
       </Ul>
-    </Nav>;
+    </Nav>
   </div>
 }
 export default Menu; 
