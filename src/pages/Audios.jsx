@@ -118,7 +118,7 @@ const Audios = () => {
         </AudioListContainer>
         <PodcastSection>
             <h2 style={{ color: 'pink', fontSize: '24px', }}>Coming Soon: The Bright-Mind Podcast</h2>
-            <p style={{ color: 'lightgreen', fontSize: '15px', }}>Only on Spotify</p>
+            <p style={{ color: 'lightgreen', fontSize: '15px', }}>Available on Audible, Pandora, iHeart Radio, and more !</p>
             <CountdownLabel>Countdown:</CountdownLabel>
             <Countdown>{ remainingTime.days} Days {remainingTime.hours} hours { remainingTime.minutes} minutes</Countdown>
         </PodcastSection>
