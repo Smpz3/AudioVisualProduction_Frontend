@@ -55,14 +55,14 @@ const CountdownLabel = styled.div`
 font-size: 30px;
 font-weight: bold;
 margin-bottom: 5px;
-text-shadow: 0 0 10px pink;
+text-shadow: 0 0 5px pink;
 `;
 
 
 const Countdown = styled.div`
 font-size: 25px;
 font-weight: bold;
-text-shadow: 0 0 10px lightgreen;
+text-shadow: 0 0 5px lightgreen;
 `;
 
 
