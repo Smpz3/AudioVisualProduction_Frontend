@@ -13,6 +13,12 @@ const CenteredPlayer = styled.div`
   flex-direction: column;
   height: 100%; 
   border: 2px solid blue;
+  padding: 20px;
+  border-radius: 0 50px;
+  margin: 10px;
+  flex-wrap: wrap;
+  gap: 20px;
+    
 `;
 const ShowList = styled.div` 
     display: flex; 
@@ -28,6 +34,7 @@ const ShowItem = styled.div`
 margin:10px; 
 cursor: pointer; 
 margin-bottom:20px; 
+color: ${props => (props.isSelected ? 'blue' : 'silver')};
 `;
 
 const CenteredFavoriteButton = styled.div`
@@ -74,8 +81,11 @@ const Shows = () => {
         <ShowListContainer>
         <ShowList>
             {data.map((show) => (
-                <ShowItem key={show.id} onClick={() => handleVideoSelect(show.url)}>
-                    <h2 style={{ color: 'silver', fontSize: '24px', }} >{show.title}</h2>
+                <ShowItem key={show.id}
+                    onClick={() => handleVideoSelect(show.url)}
+                    isSelected={selectedVideo === show.url}
+                >
+                    <h2 style={{ fontSize: '24px' }}>{show.title}</h2>
                     <CenteredFavoriteButton>
                     <FavoriteShowButton
                         isFavorite={favorites.some((favShow) => favShow.url === show.url)}

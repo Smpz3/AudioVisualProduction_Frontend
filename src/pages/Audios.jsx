@@ -15,11 +15,18 @@ align-items: center;
 flex-direction: column;
 height: 100%;
 border: 2px solid lightgreen;
+padding: 20px;
+  border-radius: 0 50px;
+  margin: 10px;
+  flex-wrap: wrap;
+  gap: 20px;
 `;
 const AudioPlayer = styled.audio`
 width: 100%;
 max-width: 750px;
 margin: 30px;
+background-color:lightgreen;
+color: white;
 `;
 
 
