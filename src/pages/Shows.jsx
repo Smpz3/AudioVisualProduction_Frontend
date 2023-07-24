@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useQuery } from "react-query";
 import { getShows } from '../services/shows.services'
 import React, { useState } from 'react';
+import FavoriteShowButton from '../components/shows/showfav'
 
 const CenteredPlayer = styled.div`
   display: flex;
@@ -15,13 +16,24 @@ const CenteredPlayer = styled.div`
 `;
 const ShowList = styled.div` 
     display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    align-items:center;
+    flex-direction: column; 
+    align-items: center; 
+`;
+const ShowListContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 const ShowItem = styled.div`
 margin:10px; 
 cursor: pointer; 
+margin-bottom:20px; 
+`;
+
+const CenteredFavoriteButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Shows = () => {
@@ -29,15 +41,27 @@ const Shows = () => {
 
     const { data, status } = useQuery('shows', getShows);
     const [selectedVideo, setSelectedVideo] = useState(null);
+    const [favorites, setFavorites] = useState([]); 
 
     if (status === 'loading') return <h2>Getting shows...</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
+    
     const handleVideoSelect = (url) => {
         setSelectedVideo(url);
     };
 
+    const handleToggleFavorite = (show) => {
+        if (favorites.some((favShow) => favShow.url === show.url)) {
+            setFavorites(favorites.filter((favShow) => favShow.url !== show.url));
+        } else {
+            setFavorites([...favorites, show]);
+        }
+        console.log('Updated Favorites:', favorites)
+    }; 
+
+
     return (<CenteredPlayer>
-        <h1 style = {{ margin: '10px', }} > Our Shows!</h1>
+        <h1 style={{ margin: '10px', }} > Our Shows!</h1>
         {selectedVideo && (
             <ReactPlayer
                 light={true}
@@ -47,16 +71,27 @@ const Shows = () => {
                 width="750px"
             />
         )}
+        <ShowListContainer>
         <ShowList>
             {data.map((show) => (
                 <ShowItem key={show.id} onClick={() => handleVideoSelect(show.url)}>
-                    <h2 style = {{ color: 'silver', fontSize: '24px', }} >{show.title}</h2>
+                    <h2 style={{ color: 'silver', fontSize: '24px', }} >{show.title}</h2>
+                    <CenteredFavoriteButton>
+                    <FavoriteShowButton
+                        isFavorite={favorites.some((favShow) => favShow.url === show.url)}
+                        onClick={() => handleToggleFavorite(show)}
+                        />
+                        </CenteredFavoriteButton>
+
+
+
                 </ShowItem>
 
             ))}
 
 
-        </ShowList>
+            </ShowList>
+        </ShowListContainer>
     </CenteredPlayer>
     );
 };
