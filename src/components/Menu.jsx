@@ -39,14 +39,14 @@ const Li = styled.li`
 
 const items = [
   { path: '/', label: 'Home', logged: false },
-  { path: '/pages/shows', label: 'Shows', logged: false },
-  { path: '/pages/characters', label: 'Characters', logged: false },
-  { path: '/pages/audios', label: 'Audios', logged: false },
-  { path: '/pages/store', label: 'Store', logged: false },
-  { path: '/pages/admin/register', label: 'Register', logged: false },
-  { path: '/pages/admin/login', label: 'Login', logged: false },
-  { path: '/pages/usersList', label: 'UsersList', logged: true },
-  { path: '/pages/profile', label: 'Profile', logged: true },
+  { path: '/shows', label: 'Shows', logged: false },
+  { path: '/characters', label: 'Characters', logged: false },
+  { path: '/audios', label: 'Audios', logged: false },
+  { path: '/store', label: 'Store', logged: false },
+  { path: '/register', label: 'Register', logged: false },
+  { path: '/login', label: 'Login', logged: false },
+  { path: '/usersList', label: 'UsersList', logged: true },
+  { path: '/profile', label: 'Profile', logged: true },
 ];
 
 

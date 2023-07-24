@@ -39,7 +39,7 @@ const Login = () => {
         }
 
         localStorage.setItem('user_token', response.token);
-        navigate('/pages/store');
+        navigate('/store');
     };
 
 

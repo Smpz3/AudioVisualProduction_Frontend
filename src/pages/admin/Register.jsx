@@ -41,7 +41,7 @@ const Register = () => {
 
         alert('Register Success');
 
-        navigate('/pages/admin/login');
+        navigate('/login');
 
     };
 
