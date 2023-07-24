@@ -61,23 +61,30 @@ const Audios = () => {
     const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
-        const targetTime = new Date();
-        targetTime.setDate(targetTime.getDate() + 30); 
+        const targetTime = new Date('2023-09-01T14:00:00-04:00');
+        
         
         
         const updateCountdown = () => {
             
-            const currentTime = new Date();
-            const timeDiffInSeconds = Math.floor((targetTime - currentTime) / 1000);
-            const days = Math.floor(timeDiffInSeconds / (60 * 60 * 24));
-            const hours = Math.floor(timeDiffInSeconds / 3600);
-            const minutes = Math.floor((timeDiffInSeconds % 3600) / 60);
+            const currentTime = new Date(); 
+            const timeDiffInSeconds = Math.floor((targetTime - currentTime) / 1000); 
+            if (timeDiffInSeconds > 0) {
+                const days = Math.floor(timeDiffInSeconds / (60 * 60 * 24));
+                const hours = Math.floor((timeDiffInSeconds % (60 * 60 * 24)) / 3600);
+                const minutes = Math.floor((timeDiffInSeconds % 3600) / 60);
 
-            setRemainingTime({ days, hours, minutes });
+                setRemainingTime({ days, hours, minutes });
+            } else {
+                
+                setRemainingTime({ days: 0, hours: 0, minutes: 0 });
+            }
         };
-        updateCountdown();
 
-        const intervalId = setInterval(updateCountdown, 1000);
+        updateCountdown(); 
+
+
+        const intervalId = setInterval(updateCountdown, 60000);
 
         return () => clearInterval(intervalId);
     }, []);
