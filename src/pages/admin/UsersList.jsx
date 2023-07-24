@@ -80,7 +80,7 @@ const UsersList = () => {
                         <td>{user.address}</td>
                         <td>{user.phone}</td>
                         <td>
-                            <Link to={`/usersList/userDetails/`}>
+                            <Link to={`/usersList/userDetails/${user.id}`}>
                                 <EditBtn className="btn">Edit</EditBtn>
                             </Link>
                         </td>

@@ -70,13 +70,13 @@ const Menu = () => {
       <Ul>
         <Hone style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </Hone>
         {items.filter((item) => item.always).map((item, index) => {
-          console.log(item)
+          // console.log(item)
           return <Link key={index} to={item.path}>
             <Li>{item.label}</Li>
           </Link>
         })}
         {items.filter((item) => item.logged !== null).map((item, index) => {
-          console.log(item)
+          // console.log(item)
           if (isLogged() === item.logged) {
 
             return <Link key={index} to={item.path}>

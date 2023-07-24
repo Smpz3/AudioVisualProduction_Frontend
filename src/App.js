@@ -42,7 +42,7 @@ function App() {
             <Route path='/profile/edit/:userID' element={<UpdateProfile />} />
             <Route element={<ProtectedRoute redirectPath='/login' />}>
               <Route path='/usersList' element={<UsersList />} />
-              <Route path='/usersList/userDetails/' element={<UserDetails />} />
+              <Route path='/usersList/userDetails/:userID' element={<UserDetails />} />
             </Route>
             <Route path="*" element={<div><p> 404 Not Found </p></div>} />
           </Routes >

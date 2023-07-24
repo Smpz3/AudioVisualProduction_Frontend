@@ -37,11 +37,12 @@ const UserDetails = () => {
 
     const { userID } = useParams();
     console.log(userID);
-    // const { data, status } = useQuery('updateProfile', getById(userID));
 
+    // const { data, status } = useQuery(['getProfile', userID], getById);
 
 
     const sendForm = async (values) => {
+        // reset()
         const { data } = await updateUser(userID, values);
         console.log(data);
     }
