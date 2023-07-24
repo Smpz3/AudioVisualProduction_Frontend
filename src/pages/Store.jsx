@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
 
-import { getProducts} from "../services/store.services";
+import { getProducts, orderByHigherPrice, orderByLowerPrice } from "../services/store.services";
 import ProductsList from "../components/store/ProductsList";
 import Cart from "../components/store/Cart";
 import Filter from "../components/store/Filter";
@@ -41,13 +41,22 @@ import Filter from "../components/store/Filter";
 const Store = () => {
 
     const [cartProducts, setCartProducts] = useState([]);
+    const [data, setData] = useState([]);
+    // const { data, status } = useQuery('products', getProducts);
+    // const { dataLowerFirst, status2 } = useQuery('products', orderByLowerPrice);
+    // const { dataHigherFirst, status3 } = useQuery('products', orderByHigherPrice);
 
-    const { data, status } = useQuery('products', getProducts);
-    //const { dataLowerFirst, status2 } = useQuery('products', orderByLowerPrice);
-    //const { dataHigherFirst, status3 } = useQuery('products', orderByHigherPrice);
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await getProducts()
+            console.log(response)
+            setData(response)
+        }
+        fetchData()
+    }, []);
 
-    if (status === 'loading') return <h2>Getting products...</h2>;
-    if (status === 'error') return <h2>Download failed</h2>;
+    // if (status === 'loading') return <h2>Getting products...</h2>;
+    // if (status === 'error') return <h2>Download failed</h2>;
 
     // console.log(data, status);
 
@@ -75,7 +84,18 @@ const Store = () => {
         cartProductsCopy.splice(deletedProductNumber, 1)
         setCartProducts(cartProductsCopy)
     }
+    const onchangee = async (seleccion) => {
+        console.log(seleccion);
+        // const { data, status } = useQuery('products', orderByLowerPrice);
+        let response;
+        if (seleccion === 1) {
+            response = await orderByLowerPrice()
 
+        } else {
+            response = await orderByHigherPrice()
+        }
+        setData(response)
+    }
 
     return <div className="container">
         <div className="row g-5 mt-1">
@@ -87,7 +107,7 @@ const Store = () => {
                 />
             </div>
             <div className="col-3 mt-5 d-block">
-                <Filter products={data} />
+                <Filter products={data} changeOrder={onchangee} />
                 <Cart
                     products={cartProducts}
                     deletedProduct={onDeletedProduct}

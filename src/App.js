@@ -38,11 +38,11 @@ function App() {
             <Route path='/store' element={<Store />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile/edit/:userID' element={<UpdateProfile />} />
             <Route element={<ProtectedRoute redirectPath='/login' />}>
               <Route path='/usersList' element={<UsersList />} />
               <Route path='/usersList/userDetails/' element={<UserDetails />} />
-              <Route path='/profile' element={<Profile />} />
-              <Route path='/profile/edit/:userID' element={<UpdateProfile />} />
             </Route>
             <Route path="*" element={<div><p> 404 Not Found </p></div>} />
           </Routes >

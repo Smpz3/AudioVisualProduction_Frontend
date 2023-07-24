@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const H3 = styled.h3`
+const Hthree = styled.h3`
     padding: 20px;
     color: var(--secondaryColor)
 `;
@@ -23,7 +23,7 @@ const Cart = ({ products, deletedProduct }) => {
     const calculateTotal = () => products.reduce((total, product) => total + (product.price * product.units), 0);
 
     return <div className="row">
-        <H3>Total: ${calculateTotal()}</H3>
+        <Hthree>Total: ${calculateTotal()}</Hthree>
         <ul className="list-group">
             {products?.map((prod, index) => (
                 <Li className="list-group-item d-flex justify-content-between" key={index}>

@@ -86,6 +86,7 @@ const UsersList = () => {
                         </td>
                         <td>
                             <BtnDel className="btn btn-danger">Delete</BtnDel>
+                            {/* onclick envio el user.id  con flexa llamo al servicio delete*/}
                         </td>
                     </tr>
                 ))}

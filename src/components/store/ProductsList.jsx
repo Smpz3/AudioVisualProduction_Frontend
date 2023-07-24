@@ -14,7 +14,7 @@ const FlexWrapper = styled.div`
     justify-content: center
 `;
 
-const H2 = styled.h2`
+const Htwo = styled.h2`
     padding: 20px;
     color: var(--secondaryColor)
 `;
@@ -25,7 +25,7 @@ const ProductsList = ({ title, products, selectedProduct }
 
 
     return <div>
-        <H2>{title}</H2>
+        <Htwo>{title}</Htwo>
         <FlexWrapper className="col-12">
             {products &&
                 products.map((prod, index) => (

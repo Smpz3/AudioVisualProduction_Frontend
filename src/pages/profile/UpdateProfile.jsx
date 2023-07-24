@@ -36,12 +36,12 @@ const UpdateProfile = () => {
 
     const { userID } = useParams();
     console.log(userID);
-    // const { data, status } = useQuery('updateProfile', getById(userID));
+    const { data, status } = useQuery(['getProfile', userID], getById);
 
-
+    /* me devuelve array con 1 objeto */
 
     const sendForm = async (values) => {
-        const { data } = await updateUser(userID, values);
+        // const { data } = await updateUser(userID, values);
         console.log(data);
     }
 
