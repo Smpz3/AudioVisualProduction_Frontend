@@ -24,7 +24,11 @@ const ImageContainer = styled.div`
 const Image = styled.img`
   width: 200px;
   height: 190px;
-  margin: 10px;
+  margin: 30px;
+  ${props => (props.alt === 'Image 3' || props.alt === 'Image 4') && `
+    width: 576px;
+    height: 144px;
+  `}
 `;
 
 const Text = styled.p`
@@ -50,9 +54,9 @@ width: 100%;
 
 
 const image1URL = "https://media.licdn.com/dms/image/D4E03AQFQ_O2xZmohLw/profile-displayphoto-shrink_200_200/0/1673061580437?e=1695254400&v=beta&t=vIxS8L68XYG0ueY7HA-h68EOiR25JMVEnU5wpSYmhcM";
-const image2URL = "https://drive.google.com/uc?id=1oX6Xa46YMzWfwRWYUToFZJc5SH_7OO3n";
-const image3URL = "https://drive.google.com/uc?id=1F7yj6K5Vhx5xEbmkjoUgHxGAp-HVkU5W ";
-const image4URL = "https://drive.google.com/uc?id=1q3J0ksBMjzBLvjHnB4XTKdtsj-qLxV14 ";
+const image2URL = "https://media.licdn.com/dms/image/C560BAQHruIzQQWOxYg/company-logo_200_200/0/1673387181182?e=1698278400&v=beta&t=terzOSpGdGffX09q1t8KkpXl5Nvz-kRF53BSfDJTPM0";
+const image3URL = "https://media.licdn.com/dms/image/C5616AQGY9JRJ2miYZA/profile-displaybackgroundimage-shrink_350_1400/0/1631112161905?e=1695859200&v=beta&t=UDug1_GeB5KnynWNY18iDXfKphcXlFoQJ_3M9vXfsvM";
+const image4URL = "https://media.licdn.com/dms/image/D563DAQEPMw8GW-P70Q/image-scale_191_1128/0/1673395795668?e=1690837200&v=beta&t=fJazaxdz2LwVVyeA2dHyUfwTP6By-lwxSyXq0ojM8SY ";
 
 const Home = () => {
     
