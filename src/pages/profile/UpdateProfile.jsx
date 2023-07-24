@@ -1,7 +1,11 @@
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
-import { registerUser } from "../../services/admin.services";
+import { useParams } from "react-router";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
+import { useQuery } from "react-query";
+import { useEffect } from "react";
+
+import { getById, updateUser } from "../../services/users.services";
+import { getUsers } from "../../services/admin.services";
 
 const Form = styled.form`
     margin-top:50px;
@@ -26,26 +30,23 @@ const InputBtn = styled.input`
 `;
 
 
-const Register = () => {
+const UpdateProfile = () => {
 
-    const { register, handleSubmit } = useForm();
-    const navigate = useNavigate();
+    const { register, handleSubmit, reset } = useForm();
+
+    const { userID } = useParams();
+    console.log(userID);
+    // const { data, status } = useQuery('updateProfile', getById(userID));
+
+
 
     const sendForm = async (values) => {
-        const response = await registerUser(values);
-        console.log(response);
+        const { data } = await updateUser(userID, values);
+        console.log(data);
+    }
 
-        if (response.fatal) {
-            return alert(response.fatal);
-        }
 
-        alert('Register Success');
-
-        navigate('/login');
-
-    };
-
-    return <Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
+    return <div>{userID}<Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
         <div className="mb-3">
             <label className="form-label">Name</label>
             <Input
@@ -112,7 +113,7 @@ const Register = () => {
         </div>
         <InputBtn className="btn btn-info" type="submit" value="Send" />
 
-    </Form>;
+    </Form></div>
 }
 
-export default Register;
+export default UpdateProfile;

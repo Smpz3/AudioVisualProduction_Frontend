@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { useQuery } from "react-query";
 import { getAudios } from '../services/audios.serices'; 
 import React, { useState, useEffect } from 'react';
+import FavoriteButton from "../components/audios/audiofav";
+
 
 const CenteredPlayer = styled.div`
   display: flex;
@@ -17,12 +19,7 @@ width: 100%;
 max-width: 750px; 
 margin: 30px; 
 `; 
-/*const AudioList = styled.div` 
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    align-items:center;
-`;*/
+
 const AudioItem = styled.div`
 width: 48%;
   margin-bottom: 20px;
@@ -54,16 +51,14 @@ const Countdown = styled.div`
   font-weight: bold;
   text-shadow: 0 0 10px lightgreen;
 `;
-const AddFav = styled.div`
-background-color:red; 
-`; 
 
 const Audios = () => {
 
 
     const { data, status } = useQuery('audios', getAudios);
     const [selectedAudio, setSelectedAudio] = useState(null);
-    const [remainingTime, setRemainingTime] = useState({days:0, hours:0, minutes: 0}); 
+    const [remainingTime, setRemainingTime] = useState({ days: 0, hours: 0, minutes: 0 }); 
+    const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
         const targetTime = new Date();
@@ -92,9 +87,17 @@ const Audios = () => {
     if (status === 'error') return <h2>Download failed</h2>;
 
 
-    const handleAudioSelect = (url) => {
-        setSelectedAudio(url);
+    const handleToggleFavorite = (audio) => {
+        if (favorites.some((favAudio) => favAudio.url === audio.url)) {
+            setFavorites(favorites.filter((favAudio) => favAudio.url !== audio.url));
+        } else {
+            setFavorites([...favorites, audio]);
+        }
+        console.log('Updated Favorites:', favorites);
+    
     };
+    
+
 
     return (<CenteredPlayer>
         <h1 style={{ margin: '10px', }}> Our Songs!</h1>
@@ -106,12 +109,12 @@ const Audios = () => {
         <AudioListContainer>
 
             {data.map((audio) => (
-                <AudioItem key={audio.id}
-                    selected={selectedAudio === audio.url}
-                    onClick={() => handleAudioSelect(audio.url)}>
+                
+                <AudioItem key={audio.id} selected={selectedAudio === audio.url} onClick={() => setSelectedAudio(audio.url)}>
                     <h2>{audio.title}</h2>
-                    <AddFav/>
+                    <FavoriteButton isFavorite={favorites.some((favAudio) => favAudio.url === audio.url)} onClick={() => handleToggleFavorite(audio)} />
                 </AudioItem>
+
             ))}
 
 

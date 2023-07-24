@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import '../styles/App.css'
+import { isLogged } from "../services/admin.services";
 
 const Nav = styled.nav`
   width: 100%;
@@ -36,31 +37,53 @@ const Li = styled.li`
   }
 `;
 
-
-
 const items = [
-  { path: '/pages/', label: 'Home' },
-  { path: '/pages/shows', label: 'Shows' },
-  { path: '/pages/characters', label: 'Characters' },
-  { path: '/pages/audios', label: 'Audios' },
-  { path: '/pages/store', label: 'Store' },
-  { path: '/pages/admin/register', label: 'Register' },
-  { path: '/pages/admin/login', label: 'Login' },
-]
+  { path: '/', label: 'Home', logged: false },
+  { path: '/shows', label: 'Shows', logged: false },
+  { path: '/characters', label: 'Characters', logged: false },
+  { path: '/audios', label: 'Audios', logged: false },
+  { path: '/store', label: 'Store', logged: false },
+  { path: '/register', label: 'Register', logged: false },
+  { path: '/login', label: 'Login', logged: false },
+  { path: '/usersList', label: 'UsersList', logged: true },
+  { path: '/profile', label: 'Profile', logged: true },
+];
 
 
 const Menu = () => {
+
+  const navigate = useNavigate();
+
+  const onLogout = () => {
+
+    const drop = window.confirm('You are going to logout. Are you sure?');
+
+    if (drop) {
+      localStorage.removeItem('user_token');
+      navigate('/');
+      navigate(0);
+    };
+  };
+
   return <div className="container">
     <Nav>
       <Ul>
         <H1 style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </H1>
-        {items.map((items, index) => (
-          <Link key={index} to={items.path}>
-            <Li>{items.label}</Li>
-          </Link>
-        ))}
+        {items.map((items, index) => {
+          if (isLogged() === items.logged) {
+
+            return <Link key={index} to={items.path}>
+              <Li>{items.label}</Li>
+            </Link>
+          }
+        })}
+        {isLogged() && (
+          <NavLink onClick={onLogout}>
+            <Li>Logout</Li>
+          </NavLink>
+        )}
       </Ul>
-    </Nav>;
+    </Nav>
   </div>
 }
 export default Menu; 

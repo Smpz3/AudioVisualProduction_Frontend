@@ -4,6 +4,7 @@ import { loginUser } from "../../services/admin.services";
 import styled from "styled-components";
 
 const Form = styled.form`
+    margin-top:50px;
     color: var(--mainColorLight);
 `;
 
@@ -25,7 +26,6 @@ const InputBtn = styled.input`
 `;
 
 
-
 const Login = () => {
 
     const { register, handleSubmit } = useForm();
@@ -33,16 +33,13 @@ const Login = () => {
 
     const sendForm = async (values) => {
         const response = await loginUser(values);
-        console.log(response);
-        console.log(values);
 
         if (response.fatal) {
             return alert(response.fatal);
         }
 
-        // localStorage.setItem('user_token', response.token);
-
-        navigate('/pages/store');
+        localStorage.setItem('user_token', response.token);
+        navigate('/store');
     };
 
 

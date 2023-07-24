@@ -1,9 +1,9 @@
 //import React from 'react'
-import ReactPlayer from 'react-player'; 
+import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 import { useQuery } from "react-query";
-import {getShows} from '../services/shows.services'
-import React, { useState } from 'react'; 
+import { getShows } from '../services/shows.services'
+import React, { useState } from 'react';
 
 const CenteredPlayer = styled.div`
   display: flex;
@@ -18,14 +18,14 @@ const ShowList = styled.div`
     flex-wrap: wrap; 
     justify-content: center; 
     align-items:center;
-`; 
+`;
 const ShowItem = styled.div`
 margin:10px; 
 cursor: pointer; 
-`; 
+`;
 
 const Shows = () => {
-    
+
 
     const { data, status } = useQuery('shows', getShows);
     const [selectedVideo, setSelectedVideo] = useState(null);

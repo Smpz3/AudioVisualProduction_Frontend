@@ -1,3 +1,10 @@
+:root {
+    --mainColor: black;
+    --mainColorLight: #DCB44D;
+    --secondaryColor: #5CE1E6;
+    --textColor: #ff66c4;
+}
+
 .addFav {
     color: var(--textColor);
     padding: 10px 5px;

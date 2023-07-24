@@ -1,13 +1,24 @@
+import React from 'react';
+import styled from 'styled-components';
 
-import classes from './audiofav.modules.css'
+const FavoriteButtonStyled = styled.button`
+  
+    padding: 10px 5px;
+    background-color: var(--mainColor);
+    border-radius: 0 50px 0 50px;
+    width: 50%;
+    color: ${(props) => (props.isFavorite ? 'pink' : 'grey')};
+  cursor: pointer;
+`;
 
 
+const FavoriteButton = ({ isFavorite, onClick }) => {
+    const handleClick = (event) => {
+        event.stopPropagation();
+        onClick();
+    };
 
-const addFav = () => {
+    return <FavoriteButtonStyled isFavorite={isFavorite} onClick={handleClick}>{isFavorite ? 'My Fav' : 'Add'}</FavoriteButtonStyled>;
+};
 
-    return <div>
-        <button className={classes.addFav} onClick={addFav}>Fav!</button>
-    </div>;
-}
-
-export default addFav;
+export default FavoriteButton;
