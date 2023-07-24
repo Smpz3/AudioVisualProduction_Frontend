@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
@@ -34,9 +34,8 @@ const InputBtn = styled.input`
 const UserDetails = () => {
 
     const { register, handleSubmit, reset } = useForm();
-
     const { userID } = useParams();
-    console.log(userID);
+    const navigate = useNavigate();
 
     useEffect(() => {
         getById(userID)
@@ -44,7 +43,7 @@ const UserDetails = () => {
                 [data] = data
                 console.log(data);
                 // setValue('name', data.name)
-                reset(data)
+                reset(data);
             })
             .catch(error => console.log(error));
 
@@ -52,10 +51,19 @@ const UserDetails = () => {
 
 
     const sendForm = async (values) => {
-        console.log(values);
-        const { data } = await updateUser(userID, values);
-        console.log(data);
-    }
+
+        const data = await updateUser(userID, values);
+
+        if (data.error) {
+            // Error management
+            alert('Error in the edition, check your data.')
+        };
+
+        // Success edition management
+        alert('Updated successfully :)');
+
+        navigate('/usersList');
+    };
 
 
     return <div>{userID}<Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">

@@ -25,9 +25,10 @@ const getById = async (userID) => {
 
 const updateUser = async (userID, values) => {
     try {
-        const response = await axios.put(`${baseUrl}/${userID}`, values);
-        console.log(response.data);
-        return response.data;
+        const response = await axios.put(`${baseUrl}/update/${userID}`, values);
+        console.log(response);
+        console.log(JSON.parse(response.config.data));
+        return JSON.parse(response.config.data)
     } catch (error) {
         return error.message;
     };
