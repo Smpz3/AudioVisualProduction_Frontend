@@ -1,15 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
+
 import './styles/App.css';
 import Menu from './components/Menu';
-
 import Footer from './components/Footer';
-
 import Characters from './pages/Characters';
 import Store from './pages/Store';
-
-
 import Shows from './pages/Shows';
 import Audios from './pages/Audios';
 import Home from './pages/Home';
