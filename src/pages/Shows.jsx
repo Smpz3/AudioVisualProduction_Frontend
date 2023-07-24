@@ -37,7 +37,7 @@ const Shows = () => {
     };
 
     return (<CenteredPlayer>
-        <h1> Our Shows!</h1>
+        <h1 style = {{ margin: '10px', }} > Our Shows!</h1>
         {selectedVideo && (
             <ReactPlayer
                 light={true}
@@ -50,7 +50,7 @@ const Shows = () => {
         <ShowList>
             {data.map((show) => (
                 <ShowItem key={show.id} onClick={() => handleVideoSelect(show.url)}>
-                    <h2>{show.title}</h2>
+                    <h2 style = {{ color: 'silver', fontSize: '24px', }} >{show.title}</h2>
                 </ShowItem>
 
             ))}

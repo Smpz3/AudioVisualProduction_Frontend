@@ -1,0 +1,12 @@
+.addFav {
+    color: var(--textColor);
+    padding: 10px 5px;
+    background-color: var(--mainColor);
+    border-radius: 0 50px 0 50px;
+    width: 50%;
+}
+
+.addFav:hover {
+    background-color: var(--secondaryColor);
+    font-weight: bold;
+}

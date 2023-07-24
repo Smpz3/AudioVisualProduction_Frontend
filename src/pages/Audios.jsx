@@ -41,9 +41,6 @@ const PodcastSection = styled.div`
   margin: 20px;
   text-align: center;
 `;
-/*const PodcastHeading = styled.div`
-font-si
-`;*/  
 
 const CountdownLabel = styled.div`
   font-size: 30px;
@@ -57,7 +54,9 @@ const Countdown = styled.div`
   font-weight: bold;
   text-shadow: 0 0 10px lightgreen;
 `;
-
+const AddFav = styled.div`
+background-color:red; 
+`; 
 
 const Audios = () => {
 
@@ -98,7 +97,7 @@ const Audios = () => {
     };
 
     return (<CenteredPlayer>
-        <h1> Our Songs!</h1>
+        <h1 style={{ margin: '10px', }}> Our Songs!</h1>
         {selectedAudio && (
             <AudioPlayer controls>
             <source src={selectedAudio} type="audio/mp3"/> 
@@ -111,6 +110,7 @@ const Audios = () => {
                     selected={selectedAudio === audio.url}
                     onClick={() => handleAudioSelect(audio.url)}>
                     <h2>{audio.title}</h2>
+                    <AddFav/>
                 </AudioItem>
             ))}
 
