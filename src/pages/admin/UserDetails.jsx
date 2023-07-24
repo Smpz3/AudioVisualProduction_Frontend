@@ -1,11 +1,11 @@
 import { useParams } from "react-router";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-// import { useQuery } from "react-query";
-// import { useEffect } from "react";
+import { useEffect } from "react";
+
 
 import { getById, updateUser } from "../../services/users.services";
-// import { getUsers } from "../../services/admin.services";
+
 
 const Form = styled.form`
     margin-top:50px;
@@ -38,11 +38,21 @@ const UserDetails = () => {
     const { userID } = useParams();
     console.log(userID);
 
-    // const { data, status } = useQuery(['getProfile', userID], getById);
+    useEffect(() => {
+        getById(userID)
+            .then((data) => {
+                [data] = data
+                console.log(data);
+                // setValue('name', data.name)
+                reset(data)
+            })
+            .catch(error => console.log(error));
+
+    }, []);
 
 
     const sendForm = async (values) => {
-        // reset()
+        console.log(values);
         const { data } = await updateUser(userID, values);
         console.log(data);
     }

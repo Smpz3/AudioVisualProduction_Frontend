@@ -15,7 +15,7 @@ const getById = async (userID) => {
     console.log(userID);
     // return axios.get(`${baseUrl}/${userID}`);
     try {
-        const response = await axios.get(`${baseUrl}/${userID.queryKey[1]}`);
+        const response = await axios.get(`${baseUrl}/${userID/* .queryKey[1] */}`);
         console.log(response.data);
         return response.data;
     } catch (error) {

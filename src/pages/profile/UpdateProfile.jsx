@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { useQuery } from "react-query";
 import { useEffect } from "react";
 
-import { getById, updateUser } from "../../services/users.services";
+import { getById, getProfile, updateUser } from "../../services/users.services";
 import { getUsers } from "../../services/admin.services";
 
 const Form = styled.form`
@@ -34,19 +34,25 @@ const UpdateProfile = () => {
 
     const { register, handleSubmit, reset } = useForm();
 
-    const { userID } = useParams();
-    console.log(userID);
-    const { data, status } = useQuery(['getProfile', userID], getById);
+    // const { userID } = useParams();
+    // console.log(userID);
+    // const { data, status } = useQuery(['getProfile', userID], getById);
+
+    const { data, status } = useQuery('profile', getProfile);
+    console.log(data);
+    if (status === 'loading') return <h2>Getting Characters..</h2>;
+    if (status === 'error') return <h2>Download failed</h2>;
 
     /* me devuelve array con 1 objeto */
 
     const sendForm = async (values) => {
+        reset(data)
         // const { data } = await updateUser(userID, values);
-        console.log(data);
+        console.log(values);
     }
 
 
-    return <div>{userID}<Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
+    return <div><Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
         <div className="mb-3">
             <label className="form-label">Name</label>
             <Input
@@ -111,7 +117,9 @@ const UpdateProfile = () => {
                 {...register('password')}
             />
         </div>
-        <InputBtn className="btn btn-info" type="submit" value="Send" />
+        <InputBtn className="btn btn-info" type="submit" value="Accept Changes" />
+
+        <InputBtn className="btn btn-danger" value="Delete my user" />
 
     </Form></div>
 }
