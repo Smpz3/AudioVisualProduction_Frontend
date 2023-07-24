@@ -50,7 +50,6 @@ const items = [
   { path: '/profile', label: 'Profile', logged: true },
 ];
 
-console.log(isLogged());
 const Menu = () => {
 
   const navigate = useNavigate();
