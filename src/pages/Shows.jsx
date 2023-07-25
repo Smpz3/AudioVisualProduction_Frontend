@@ -1,9 +1,9 @@
-//import React from 'react'
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 import { useQuery } from "react-query";
-import { getShows } from '../services/shows.services'
 import React, { useState } from 'react';
+
+import { getShows } from '../services/shows.services'
 import FavoriteShowButton from '../components/shows/showfav'
 
 const CenteredPlayer = styled.div`

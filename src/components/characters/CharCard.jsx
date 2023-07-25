@@ -1,7 +1,5 @@
 import classes from './CharCard.module.css'
 
-
-
 const CharCard = ({ character }) => {
 
     const addFav = () => { }

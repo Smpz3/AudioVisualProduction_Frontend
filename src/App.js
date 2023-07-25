@@ -19,9 +19,7 @@ import Login from './pages/admin/Login';
 import UserDetails from './pages/admin/UserDetails';
 
 
-
 const queryClient = new QueryClient();
-
 
 
 function App() {
@@ -55,7 +53,6 @@ function App() {
         </div>
       </BrowserRouter>
     </QueryClientProvider>
-
   );
 }
 

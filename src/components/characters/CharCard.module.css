@@ -5,7 +5,6 @@
     --textColor: #ff66c4;
 }
 
-
 .card {
     background-color: var(--mainColor);
     color: var(--mainColorLight);

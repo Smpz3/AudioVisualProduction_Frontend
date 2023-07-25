@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
-
 import { getById, updateUser } from "../../services/users.services";
 import { deleteUser } from "../../services/admin.services";
 
@@ -31,7 +30,6 @@ const InputBtn = styled.input`
 `;
 
 
-
 const UserDetails = () => {
 
     const { register, handleSubmit, reset } = useForm();
@@ -42,13 +40,11 @@ const UserDetails = () => {
         getById(userID)
             .then((data) => {
                 [data] = data
-                console.log(data);
                 reset(data);
             })
             .catch(error => console.log(error));
 
     }, []);
-
 
     const sendForm = async (values) => {
 
@@ -64,7 +60,6 @@ const UserDetails = () => {
 
         navigate('/usersList');
     };
-
 
     return <div>{userID}<Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
         <div className="mb-3">
@@ -129,5 +124,4 @@ const UserDetails = () => {
 
     </Form></div>
 }
-
 export default UserDetails;

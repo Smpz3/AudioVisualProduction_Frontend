@@ -9,9 +9,8 @@ const FavoriteButtonStyled = styled.button`
     border-radius: 0 50px 0 50px;
     width: 20%;
     color: ${(props) => (props.isFavorite ? 'pink' : 'grey')};
-  cursor: pointer;
+    cursor: pointer;
 `;
-
 
 const FavoriteShowButton = ({ isFavorite, onClick }) => {
     const handleClick = (event) => {
