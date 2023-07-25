@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 
-import { deleteProfile, getProfile } from "../../services/users.services";
+import { deleteProfile, getProfile, getUserCharacters } from "../../services/users.services";
 
 const FlexWrapper = styled.div`
     background-color: var(--mainColor);
@@ -54,6 +54,8 @@ const BtnDel = styled.button`
 const Profile = () => {
 
     const { data, status, refetch } = useQuery('profile', getProfile);
+    /* const { data2, status2 } = useQuery('charFavs', getUserCharacters); */
+
 
     if (status === 'loading') return <h2>Getting Characters..</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
@@ -85,7 +87,14 @@ const Profile = () => {
         <FlexWrapper className="col-6">
             <div>
                 <h3>Shows</h3>
+                <div>
+                </div>
+                <h3>Characters</h3>
+                <div>
+                </div>
                 <h3>Audios</h3>
+                <div>
+                </div>
             </div>
         </FlexWrapper>
 

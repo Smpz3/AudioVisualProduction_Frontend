@@ -61,7 +61,18 @@ const createCharFavs = async (values) => {
     };
 };
 
+const getUserCharacters = async (userID) => {
+    try {
+        const response = await axios.get(`${baseUrl}/characters/${userID}`);
+        console.log(response);
+        return JSON.parse(response.config.data)
+    } catch (error) {
+        return error.message;
+    };
+};
+
+
 
 export {
-    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs
+    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs, getUserCharacters
 }
