@@ -13,7 +13,7 @@ const getProfile = async (values) => {
 
 const getById = async (userID) => {
     try {
-        const response = await axios.get(`${baseUrl}/${userID/* .queryKey[1] */}`);
+        const response = await axios.get(`${baseUrl}/${userID}`);
         return response.data;
     } catch (error) {
         return error.message;

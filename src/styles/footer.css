@@ -1,20 +1,20 @@
-.main-footer{
-color: var(--textColor); 
-background-color: var(--mainColor);
-padding-top: 1.5em; 
-position: relative;
-bottom: 1; 
-width: 100%;
-font-size: 15px;
-
-} 
-.socials {
-size: 10px;
-color: azure;
-transition: color 0.5s;
-text-decoration: none;
-margin: 0 10px;
+.main-footer {
+    color: var(--textColor);
+    background-color: var(--mainColor);
+    padding-top: 1.5em;
+    position: relative;
+    width: 100%;
+    font-size: 15px;
 }
-.socials:hover{
+
+.socials {
+    size: 10px;
+    color: azure;
+    transition: color 0.5s;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.socials:hover {
     color: var(--mainColorLight);
 }

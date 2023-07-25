@@ -4,6 +4,7 @@ import { getProducts, orderByHigherPrice, orderByLowerPrice } from "../services/
 import ProductsList from "../components/store/ProductsList";
 import Cart from "../components/store/Cart";
 import Filter from "../components/store/Filter";
+import { isLogged } from "../services/admin.services";
 
 
 const Store = () => {
@@ -60,7 +61,7 @@ const Store = () => {
     };
 
     return <div className="container">
-        <div className="row g-5 mt-1">
+        <div className="row g-5 mt-1 d-flex justify-content-center">
             <div className="col-9 mt-0">
                 <ProductsList
                     title='Get your favourite Sticker!!'
@@ -68,13 +69,15 @@ const Store = () => {
                     selectedProduct={onSelectedProduct}
                 />
             </div>
-            <div className="col-3 mt-5 d-block">
-                <Filter products={data} changeOrder={onChange} />
-                <Cart
-                    products={cartProducts}
-                    deletedProduct={onDeletedProduct}
-                />
-            </div>
+            {isLogged() &&
+                <div className="col-3 mt-5 d-block">
+                    <Filter products={data} changeOrder={onChange} />
+                    <Cart
+                        products={cartProducts}
+                        deletedProduct={onDeletedProduct}
+                    />
+                </div>
+            }
         </div>
     </div>
 }
