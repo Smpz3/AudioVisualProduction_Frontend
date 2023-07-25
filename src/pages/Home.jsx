@@ -87,7 +87,7 @@ const Home = () => {
           <ImageRcontainer>
             <Image src={image4URL} alt="Image 4" />
           </ImageRcontainer>
-          <Text>Areas of interest for the television series will include interpersonal communication skills, trauma and resilience informed approaches, mastery of environment through systems theory, mental health disorders and wellness, and general psychology principles. Influencing social change requires a deep understanding of the problems facing society and steadfastness to overcome them which led to the creation of our advisory panel/editorial board </Text>
+          <Text>Areas of interest for the television series will include interpersonal communication skills, trauma and resilience informed approaches, mastery of environment through systems theory, mental health disorders and wellness, and general psychology principles. Influencing social change requires a deep understanding of the problems facing society and steadfastness to overcome them which led to the creation of our advisory panel/editorial board. </Text>
             </div>
             
         </Container>
