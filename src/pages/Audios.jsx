@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 
 import { getAudios } from '../services/audios.serices';
 import FavoriteButton from "../components/audios/audiofav";
+import { createMusicFavs } from '../services/users.services';
 
 
 const CenteredPlayer = styled.div`
@@ -151,7 +152,10 @@ const Audios = () => {
                 <h2>{audio.title}</h2>
                 <FavoriteButton
                   isFavorite={favorites.some((favAudio) => favAudio.url === audio.url)}
-                  onClick={() => handleToggleFavorite(audio)}
+                  onClick={() => {
+                    handleToggleFavorite(audio);
+                    createMusicFavs(audio.id)
+                  }}
                 />
               </AudioTitle>
             </AudioItem>

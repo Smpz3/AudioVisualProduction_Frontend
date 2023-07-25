@@ -38,6 +38,30 @@ const updateUser = async (userID, values) => {
     };
 };
 
+const createMusicFavs = async (values) => {
+    try {
+        console.log(values);
+        const response = await axios.post(`${baseUrl}/profile/favs/audios`, values);
+        console.log(response);
+        console.log(response.data);
+        return JSON.parse(response.config.data)
+    } catch (error) {
+        return error.message;
+    };
+};
+const createCharFavs = async (values) => {
+    try {
+        console.log(values);
+        // const response = await axios.post(`${baseUrl}/profile/favs/characters`, values);
+        // console.log(response);
+        // console.log(response.data);
+        // return JSON.parse(response.config.data)
+    } catch (error) {
+        return error.message;
+    };
+};
+
+
 export {
-    getProfile, getById, updateUser, deleteProfile
+    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs
 }
