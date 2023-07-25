@@ -7,6 +7,7 @@ import { loginUser } from "../../services/admin.services";
 const Form = styled.form`
     margin-top:50px;
     color: var(--mainColorLight);
+    margin-bottom: 250px;
 `;
 
 const Input = styled.input`

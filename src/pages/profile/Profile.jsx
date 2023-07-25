@@ -70,7 +70,6 @@ const Profile = () => {
                 <li>{data.address}</li>
                 <li>{data.phone}</li>
                 <li>{data.password}</li>
-                <li>FAVS</li>
                 <Link to={`/profile/edit/${data.id}`}>
                     <EditBtn className="btn">Edit</EditBtn>
                 </Link>
@@ -79,6 +78,15 @@ const Profile = () => {
             </Ul>
 
         </FlexWrapper>
+        <H2>My Favs</H2>
+        <FlexWrapper className="col-6">
+            <div>
+                <h3>Shows</h3>
+                <h3>Audios</h3>
+            </div>
+        </FlexWrapper>
+
+
     </div>
 }
 
