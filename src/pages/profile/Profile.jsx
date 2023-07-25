@@ -22,6 +22,13 @@ const H2 = styled.h2`
     margin: 30px 0;
 `;
 
+const Ul = styled.ul`
+list-style: square;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+`;
+
 const EditBtn = styled.button`
     color: var(--mainColorLight);
     padding: 10px 5px;
@@ -34,6 +41,7 @@ const EditBtn = styled.button`
         color: var(--mainColor);    
     }    
 `;
+
 const BtnDel = styled.button`
 color: var(--textColor);
     padding: 10px 5px;
@@ -53,7 +61,7 @@ const Profile = () => {
         <H2>My Profile</H2>
         <FlexWrapper className="col-6">
 
-            <ul key={data.id}>
+            <Ul key={data.id}>
                 <li>{data.name} {data.surname}</li>
                 <li>{data.email}</li>
                 <li>{data.age}</li>
@@ -67,7 +75,7 @@ const Profile = () => {
                 </Link>
                 <BtnDel className="btn btn-danger">Delete</BtnDel>
 
-            </ul>
+            </Ul>
 
         </FlexWrapper>
     </div>

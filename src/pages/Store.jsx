@@ -27,24 +27,20 @@ const Store = () => {
             setCartProducts([...cartProducts, selectedProduct]);
         } else {
             const cartProductsCopy = [...cartProducts];
-            // const sPcopy = { ...selectedProduct, units: 1 } //aquí he hecho una copia de selectedProduct para establecerle las unidades en 1 ya que cada vez que lo clico para añadirlo, añado 1 unidad.
             const productCopy = { ...cartProducts[selected], units: cartProducts[selected].units + selectedProduct.units };
-            console.log(productCopy);
             cartProductsCopy[selected] = productCopy;
             setCartProducts(cartProductsCopy);
-        }
+        };
     };
 
     const onDeletedProduct = (deletedProductNumber) => {
 
-        console.log(deletedProductNumber);
-
-        const cartProductsCopy = [...cartProducts]
-        cartProductsCopy.splice(deletedProductNumber, 1)
-        setCartProducts(cartProductsCopy)
+        const cartProductsCopy = [...cartProducts];
+        cartProductsCopy.splice(deletedProductNumber, 1);
+        setCartProducts(cartProductsCopy);
     };
 
-    const onchangee = async (selection) => {
+    const onChange = async (selection) => {
 
         let response;
         switch (selection) {
@@ -73,7 +69,7 @@ const Store = () => {
                 />
             </div>
             <div className="col-3 mt-5 d-block">
-                <Filter products={data} changeOrder={onchangee} />
+                <Filter products={data} changeOrder={onChange} />
                 <Cart
                     products={cartProducts}
                     deletedProduct={onDeletedProduct}

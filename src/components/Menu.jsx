@@ -9,7 +9,7 @@ const Nav = styled.nav`
   border-bottom: 3px solid hotpink;
   margin-bottom: 10px;
 `;
-const Hone = styled.h1`
+const H1 = styled.h1`
   font-size: 50px; 
   margin-top: 10px; 
 `;
@@ -68,7 +68,7 @@ const Menu = () => {
   return <div className="container">
     <Nav>
       <Ul>
-        <Hone style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </Hone>
+        <H1 style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </H1>
         {items.filter((item) => item.always).map((item, index) => {
           // console.log(item)
           return <Link key={index} to={item.path}>
