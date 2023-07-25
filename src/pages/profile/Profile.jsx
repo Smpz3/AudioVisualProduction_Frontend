@@ -53,7 +53,7 @@ const BtnDel = styled.button`
 
 const Profile = () => {
 
-    const { data, status } = useQuery('profile', getProfile);
+    const { data, status, refetch } = useQuery('profile', getProfile);
 
     if (status === 'loading') return <h2>Getting Characters..</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
@@ -73,7 +73,10 @@ const Profile = () => {
                 <Link to={`/profile/edit/${data.id}`}>
                     <EditBtn className="btn">Edit</EditBtn>
                 </Link>
-                <BtnDel className="btn btn-danger" onClick={() => { deleteProfile(data.id) }}>Delete</BtnDel>
+                <BtnDel className="btn btn-danger" onClick={async () => {
+                    await deleteProfile(data.id);
+                    refetch();
+                }}>Delete</BtnDel>
 
             </Ul>
 

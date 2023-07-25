@@ -132,7 +132,10 @@ const UpdateProfile = () => {
         </div>
         <InputBtn className="btn btn-info" type="submit" value="Accept Changes" />
 
-        <InputBtn className="btn btn-danger" value="Delete my user" onClick={() => { deleteProfile(userID) }} />
+        <InputBtn className="btn btn-danger" value="Delete my user" onClick={async () => {
+            await deleteProfile(userID);
+            navigate('/profile');
+        }} />
 
     </Form></div>
 }
