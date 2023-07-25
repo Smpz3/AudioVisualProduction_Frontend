@@ -38,6 +38,9 @@ margin-bottom: 20px;
 cursor: pointer;
 color: ${(props) => (props.selected ? 'lightgreen' : 'grey')};
 `;
+
+
+
 const AudioListContainer = styled.div`
 display: flex;
 flex-wrap: wrap;
@@ -45,6 +48,15 @@ justify-content: flex-start;
 max-width: 800px;
 margin-top:20px; 
 margin-left: 50px;
+`;
+const AudioTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+  cursor: pointer;
+  
 `;
 
 
@@ -151,15 +163,23 @@ const Audios = () => {
           />
         </AudioPlayerContainer>
       )}
-      <AudioListContainer>
-        {data.map((audio) => (
-          <AudioItem key={audio.id} selected={selectedAudio === audio.url} onClick={() => setSelectedAudio(audio.url)}>
-            <h2>{audio.title}</h2>
-            <FavoriteButton isFavorite={favorites.some((favAudio) => favAudio.url === audio.url)} onClick={() => handleToggleFavorite(audio)} />
-          </AudioItem>
-        ))}
-         </AudioListContainer>
-            </div>
+      
+          <AudioListContainer>
+            {data.map((audio) => (
+              <AudioItem key={audio.id} selected={selectedAudio === audio.url} onClick={() => setSelectedAudio(audio.url)}>
+               
+                <AudioTitle>
+                  <h2>{audio.title}</h2>
+                <FavoriteButton
+                  isFavorite={favorites.some((favAudio) => favAudio.url === audio.url)}
+                  onClick={() => handleToggleFavorite(audio)}
+                />
+                </AudioTitle>
+              </AudioItem>
+            ))}
+          </AudioListContainer>
+        </div>
+        
         <PodcastSection>
             <h2 style={{ color: 'pink', fontSize: '24px', }}>Coming Soon: The Bright-Mind Podcast</h2>
             <p style={{ color: 'lightgreen', fontSize: '15px', }}>Available on Audible, Pandora, iHeart Radio, and more !</p>

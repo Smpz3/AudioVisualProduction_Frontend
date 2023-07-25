@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -17,6 +17,7 @@ const ImageContainer = styled.div`
   width: 100%;
   border-top: 2px solid pink;
   margin-top: 30px;
+  
 `;
 
 
@@ -60,8 +61,9 @@ const image3URL = "https://media.licdn.com/dms/image/C5616AQGY9JRJ2miYZA/profile
 const image4URL = "https://media.licdn.com/dms/image/D563DAQEPMw8GW-P70Q/image-scale_191_1128/0/1673395795668?e=1690837200&v=beta&t=fJazaxdz2LwVVyeA2dHyUfwTP6By-lwxSyXq0ojM8SY ";
 
 const Home = () => {
+
+    
     return (
-        
         <Container>
             <Title>
                 <h3>Welcome! Learn more about us here:</h3>
@@ -86,6 +88,7 @@ const Home = () => {
                     </Text>
                 </div>
             </ImageContainer>
+          
             <div>
                 <Image src={image3URL} alt="Image 3" />
                 <Text>
@@ -103,7 +106,8 @@ const Home = () => {
                     psychology principles. Influencing social change requires a deep understanding of the problems facing society and
                     steadfastness to overcome them which led to the creation of our advisory panel and editorial board.
                 </Text>
-            </div>
+                </div>
+            
             </Container>
             
     );
