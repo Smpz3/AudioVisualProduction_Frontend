@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { loginUser } from "../../services/admin.services";
 import styled from "styled-components";
+
+import { loginUser } from "../../services/admin.services";
 
 const Form = styled.form`
     margin-top:50px;

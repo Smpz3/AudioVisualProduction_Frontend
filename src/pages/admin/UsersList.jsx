@@ -1,11 +1,12 @@
 import { useQuery } from "react-query";
-import { getUsers } from "../../services/admin.services";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import { deleteUser, getUsers } from "../../services/admin.services";
+
 const Table = styled.table`
-margin: 0 auto;
-width: 90%;
+    margin: 0 auto;
+    width: 90%;
     color: var(--mainColorLight);
     background-color: var(--secondaryColor);
     th{
@@ -23,8 +24,8 @@ width: 90%;
 `;
 
 const H2 = styled.h2`
-color: var(--secondaryColor);
-margin: 30px;
+    color: var(--secondaryColor);
+    margin: 30px;
 `;
 
 const EditBtn = styled.button`
@@ -40,7 +41,7 @@ const EditBtn = styled.button`
 `;
 
 const BtnDel = styled.button`
-color: var(--textColor);
+    color: var(--textColor);
     padding: 10px 5px;
     background-color: var(--mainColor);
     border-radius: 0 50px 0 50px;
@@ -85,7 +86,7 @@ const UsersList = () => {
                             </Link>
                         </td>
                         <td>
-                            <BtnDel className="btn btn-danger">Delete</BtnDel>
+                            <BtnDel className="btn btn-danger" onClick={() => { deleteUser(user.id) }}>Delete</BtnDel>
                             {/* onclick envio el user.id  con flexa llamo al servicio delete*/}
                         </td>
                     </tr>

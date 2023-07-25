@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 
 import { getById, updateUser } from "../../services/users.services";
+import { deleteUser } from "../../services/admin.services";
 
 
 const Form = styled.form`
@@ -124,7 +125,7 @@ const UserDetails = () => {
         </div>
         <InputBtn className="btn btn-info" type="submit" value="Accept Changes" />
 
-        <InputBtn className="btn btn-danger" value="Delete user" />
+        <InputBtn className="btn btn-danger" value="Delete user" onClick={() => { deleteUser(userID) }} />
 
     </Form></div>
 }

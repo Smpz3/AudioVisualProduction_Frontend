@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { useQuery } from "react-query";
-import { getProfile } from "../../services/users.services";
 import { Link } from "react-router-dom";
+
+import { deleteProfile, getProfile } from "../../services/users.services";
 
 const FlexWrapper = styled.div`
     background-color: var(--mainColor);
@@ -23,7 +24,7 @@ const H2 = styled.h2`
 `;
 
 const Ul = styled.ul`
-list-style: square;
+    list-style: square;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -43,7 +44,7 @@ const EditBtn = styled.button`
 `;
 
 const BtnDel = styled.button`
-color: var(--textColor);
+    color: var(--textColor);
     padding: 10px 5px;
     background-color: var(--mainColor);
     border-radius: 0 50px 0 50px;
@@ -73,7 +74,7 @@ const Profile = () => {
                 <Link to={`/profile/edit/${data.id}`}>
                     <EditBtn className="btn">Edit</EditBtn>
                 </Link>
-                <BtnDel className="btn btn-danger">Delete</BtnDel>
+                <BtnDel className="btn btn-danger" onClick={() => { deleteProfile(data.id) }}>Delete</BtnDel>
 
             </Ul>
 

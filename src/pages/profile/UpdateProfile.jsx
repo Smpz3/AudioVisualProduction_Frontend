@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
-import { getById, updateUser } from "../../services/users.services";
+import { deleteProfile, getById, updateUser } from "../../services/users.services";
 
 
 const Form = styled.form`
@@ -132,7 +132,7 @@ const UpdateProfile = () => {
         </div>
         <InputBtn className="btn btn-info" type="submit" value="Accept Changes" />
 
-        <InputBtn className="btn btn-danger" value="Delete my user" />
+        <InputBtn className="btn btn-danger" value="Delete my user" onClick={() => { deleteProfile(userID) }} />
 
     </Form></div>
 }

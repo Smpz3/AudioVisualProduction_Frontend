@@ -48,11 +48,11 @@ const Shows = () => {
 
     const { data, status } = useQuery('shows', getShows);
     const [selectedVideo, setSelectedVideo] = useState(null);
-    const [favorites, setFavorites] = useState([]); 
+    const [favorites, setFavorites] = useState([]);
 
     if (status === 'loading') return <h2>Getting shows...</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
-    
+
     const handleVideoSelect = (url) => {
         setSelectedVideo(url);
     };
@@ -64,7 +64,7 @@ const Shows = () => {
             setFavorites([...favorites, show]);
         }
         console.log('Updated Favorites:', favorites)
-    }; 
+    };
 
 
     return (<CenteredPlayer>
@@ -79,25 +79,25 @@ const Shows = () => {
             />
         )}
         <ShowListContainer>
-        <ShowList>
-            {data.map((show) => (
-                <ShowItem key={show.id}
-                    onClick={() => handleVideoSelect(show.url)}
-                    isSelected={selectedVideo === show.url}
-                >
-                    <h2 style={{ fontSize: '24px' }}>{show.title}</h2>
-                    <CenteredFavoriteButton>
-                    <FavoriteShowButton
-                        isFavorite={favorites.some((favShow) => favShow.url === show.url)}
-                        onClick={() => handleToggleFavorite(show)}
-                        />
+            <ShowList>
+                {data.map((show) => (
+                    <ShowItem key={show.id}
+                        onClick={() => handleVideoSelect(show.url)}
+                        isSelected={selectedVideo === show.url}
+                    >
+                        <h2 style={{ fontSize: '24px' }}>{show.title}</h2>
+                        <CenteredFavoriteButton>
+                            <FavoriteShowButton
+                                isFavorite={favorites.some((favShow) => favShow.url === show.url)}
+                                onClick={() => handleToggleFavorite(show)}
+                            />
                         </CenteredFavoriteButton>
 
 
 
-                </ShowItem>
+                    </ShowItem>
 
-            ))}
+                ))}
 
 
             </ShowList>
