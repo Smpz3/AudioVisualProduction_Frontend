@@ -19,7 +19,6 @@ const ImageContainer = styled.div`
   
 `;
 
-
 const Image = styled.img`
   width: 200px;
   height: 190px;
