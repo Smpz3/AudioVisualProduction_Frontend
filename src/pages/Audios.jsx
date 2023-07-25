@@ -1,4 +1,4 @@
-import { SoundPlayer, Track } from 'react-soundplayer';
+import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 import { useQuery } from "react-query";
 import { getAudios } from '../services/audios.serices';
@@ -21,14 +21,16 @@ padding: 20px;
   flex-wrap: wrap;
   gap: 20px;
 `;
-const AudioPlayer = styled.audio`
-width: 100%;
-max-width: 750px;
-margin: 30px;
-background-color:lightgreen;
-color: white;
-`;
 
+const AudioPlayerContainer = styled.div`
+  width: 100%;
+  border: 2px solid lightgreen;
+  border-radius: 10px;
+  mardon-top: 30px; 
+  margin-bottom:50px;
+  padding: 5px; 
+  `; 
+  
 
 const AudioItem = styled.div`
 width: 48%;
@@ -41,6 +43,7 @@ display: flex;
 flex-wrap: wrap;
 justify-content: flex-start;
 max-width: 800px;
+margin-top:20px; 
 margin-left: 50px;
 `;
 
@@ -126,29 +129,37 @@ const Audios = () => {
 
 
 
-    return (<CenteredPlayer>
-        <h1 style={{ margin: '10px', }}> Our Songs!</h1>
-        {selectedAudio && (
-            <AudioPlayer controls>
-                <source src={selectedAudio} type="audio/mp3" />
-            </AudioPlayer>
-        )}
-        <AudioListContainer>
-
-
-            {data.map((audio) => (
-                <AudioItem key={audio.id} selected={selectedAudio === audio.url} onClick={() => setSelectedAudio(audio.url)}>
-                    <h2>{audio.title}</h2>
-                    <FavoriteButton isFavorite={favorites.some((favAudio) => favAudio.url === audio.url)} onClick={() => handleToggleFavorite(audio)} />
-                </AudioItem>
-
-
-            ))}
-
-
-
-
-        </AudioListContainer>
+    return (
+        <CenteredPlayer>
+            <h1 style={{ margin: '10px', }}> Our Songs!</h1>
+    <div>
+      {selectedAudio && (
+        <AudioPlayerContainer>
+          <ReactPlayer
+            url={selectedAudio}
+            controls
+            width="100%"
+            height="45px"
+            config={{
+              soundcloud: {
+                options: {
+                      show_artwork: false 
+                }
+              }
+            }}
+            playing 
+          />
+        </AudioPlayerContainer>
+      )}
+      <AudioListContainer>
+        {data.map((audio) => (
+          <AudioItem key={audio.id} selected={selectedAudio === audio.url} onClick={() => setSelectedAudio(audio.url)}>
+            <h2>{audio.title}</h2>
+            <FavoriteButton isFavorite={favorites.some((favAudio) => favAudio.url === audio.url)} onClick={() => handleToggleFavorite(audio)} />
+          </AudioItem>
+        ))}
+         </AudioListContainer>
+            </div>
         <PodcastSection>
             <h2 style={{ color: 'pink', fontSize: '24px', }}>Coming Soon: The Bright-Mind Podcast</h2>
             <p style={{ color: 'lightgreen', fontSize: '15px', }}>Available on Audible, Pandora, iHeart Radio, and more !</p>
