@@ -16,11 +16,9 @@ const ImageContainer = styled.div`
   width: 100%;
   border-top: 2px solid pink;
   margin-top: 30px;
-  
 `;
 
 const Image = styled.img`
-
   width: 200px;
   height: 190px;
   margin: 40px;
@@ -52,6 +50,12 @@ const Title = styled.h3`
   display: flex;
 `;
 
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 
 
 const image1URL = "https://media.licdn.com/dms/image/D4E03AQFQ_O2xZmohLw/profile-displayphoto-shrink_200_200/0/1673061580437?e=1695254400&v=beta&t=vIxS8L68XYG0ueY7HA-h68EOiR25JMVEnU5wpSYmhcM";
@@ -68,27 +72,27 @@ const Home = () => {
         <h3>Welcome! Learn more about us here:</h3>
       </Title>
       <ImageContainer>
-        <div>
+        <Div>
           <Image src={image1URL} alt="Image 1" />
           <Text>
             The Brightside Productions LLC is a multidisciplinary production company and research institute created in order
             to incorporate the application of evidence-based research and social work practices within the creative field
             through music, animation, television, film, and other mediums.
           </Text>
-        </div>
+        </Div>
 
-        <div>
+        <Div>
           <Image src={image2URL} alt="Image 2" />
           <Text>
-            The primary objective of The Brightside Productions LLC is to create a global social impact so that all individuals
+            The primary objective of The Brightside Productions LLC is to create a global social impact so that all inDividuals
             can live healthier, happier, and more knowledgeable lives. Children ages 8-12 years-old in the United States spend
             an average of 4 to 6 hours per day staring at a screen while teenagers strikingly spend up to 9 hours a day on screen
             time.
           </Text>
-        </div>
+        </Div>
       </ImageContainer>
 
-      <div>
+      <Div>
         <Image src={image3URL} alt="Image 3" />
         <Text>
           While the negative effects of such extensive screen time warrant a separate and lengthy discussion - we have an
@@ -96,8 +100,8 @@ const Home = () => {
           identified branch of communication. Thus, we aspire to create an objective way to accomplish these goals through the
           creation of an animated television series centered around evidence-based research and social work practices.
         </Text>
-      </div>
-      <div>
+      </Div>
+      <Div>
         <Image src={image4URL} alt="Image 4" />
         <Text>
           Areas of interest for the television series will include interpersonal communication skills, trauma and resilience
@@ -105,7 +109,7 @@ const Home = () => {
           psychology principles. Influencing social change requires a deep understanding of the problems facing society and
           steadfastness to overcome them which led to the creation of our advisory panel and editorial board.
         </Text>
-      </div>
+      </Div>
 
     </Container>
 
