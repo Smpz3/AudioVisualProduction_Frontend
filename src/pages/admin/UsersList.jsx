@@ -51,7 +51,7 @@ const BtnDel = styled.button`
 
 const UsersList = () => {
 
-    const { data, status } = useQuery('usersList', getUsers);
+    const { data, status, refetch } = useQuery('usersList', getUsers);
 
     if (status === 'loading') return <h2>Getting shows...</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
@@ -86,7 +86,10 @@ const UsersList = () => {
                             </Link>
                         </td>
                         <td>
-                            <BtnDel className="btn btn-danger" onClick={() => { deleteUser(user.id) }}>Delete</BtnDel>
+                            <BtnDel className="btn btn-danger" onClick={async () => {
+                                await deleteUser(user.id);
+                                refetch();
+                            }}>Delete</BtnDel>
                         </td >
                     </tr >
                 ))}
