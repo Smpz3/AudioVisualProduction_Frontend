@@ -38,17 +38,17 @@ const Li = styled.li`
 `;
 
 const items = [
-  { path: '/', label: 'Home', logged: false },
-  { path: '/shows', label: 'Shows', logged: false },
-  { path: '/characters', label: 'Characters', logged: false },
-  { path: '/audios', label: 'Audios', logged: false },
-  { path: '/store', label: 'Store', logged: false },
+  /* status 0,1,2 en todos 0 todos 1 userloged 2 admin */
+  { path: '/', label: 'Home', always: true },
+  { path: '/shows', label: 'Shows', always: true },
+  { path: '/characters', label: 'Characters', always: true },
+  { path: '/audios', label: 'Audios', always: true },
+  { path: '/store', label: 'Store', always: true },
   { path: '/register', label: 'Register', logged: false },
   { path: '/login', label: 'Login', logged: false },
   { path: '/usersList', label: 'UsersList', logged: true },
   { path: '/profile', label: 'Profile', logged: true },
 ];
-
 
 const Menu = () => {
 
@@ -65,17 +65,26 @@ const Menu = () => {
     };
   };
 
+
   return <div className="container">
     <Nav>
       <Ul>
         <H1 style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </H1>
-        {items.map((items, index) => {
-          if (isLogged() === items.logged) {
+        {items.filter((item) => item.always).map((item, index) => {
+          // console.log(item)
+          return <Link key={index} to={item.path}>
+            <Li>{item.label}</Li>
+          </Link>
+        })}
+        {items.filter((item) => item.logged !== null).map((item, index) => {
+          // console.log(item)
+          if (isLogged() === item.logged) {
 
-            return <Link key={index} to={items.path}>
-              <Li>{items.label}</Li>
+            return <Link key={index} to={item.path}>
+              <Li>{item.label}</Li>
             </Link>
           }
+          /* otro filter con item.status===2 */
         })}
         {isLogged() && (
           <NavLink onClick={onLogout}>

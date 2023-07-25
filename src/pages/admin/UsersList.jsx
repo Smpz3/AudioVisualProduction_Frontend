@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { getUsers } from "../services/admin.services";
+import { getUsers } from "../../services/admin.services";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
@@ -16,6 +16,9 @@ width: 90%;
     }
     tr{
         height:25px;
+    }
+    tr{
+        height: 50px;
     }
 `;
 
@@ -34,6 +37,14 @@ const EditBtn = styled.button`
         background-color: var(--secondaryColor);
         color: var(--mainColor);    
     }    
+`;
+
+const BtnDel = styled.button`
+color: var(--textColor);
+    padding: 10px 5px;
+    background-color: var(--mainColor);
+    border-radius: 0 50px 0 50px;
+    width: 100%;
 `;
 
 
@@ -56,6 +67,7 @@ const UsersList = () => {
                     <th>Address</th>
                     <th>Phone</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -68,9 +80,13 @@ const UsersList = () => {
                         <td>{user.address}</td>
                         <td>{user.phone}</td>
                         <td>
-                            <Link to={`/edit/${user.id}`}>
+                            <Link to={`/usersList/userDetails/${user.id}`}>
                                 <EditBtn className="btn">Edit</EditBtn>
                             </Link>
+                        </td>
+                        <td>
+                            <BtnDel className="btn btn-danger">Delete</BtnDel>
+                            {/* onclick envio el user.id  con flexa llamo al servicio delete*/}
                         </td>
                     </tr>
                 ))}

@@ -30,7 +30,6 @@ const Image = styled.img`
     height: 144px;
   `}
 `;
-
 const Text = styled.p`
   font-size: 18px;
   color: var(--secondaryColor);
@@ -48,9 +47,8 @@ const Title = styled.h3`
 const ImageRcontainer = styled.div` 
 display: flex; 
 justify-content:flex-end; 
-width: 100%; 
+width: 100%;`;
 
-`; 
 
 
 const image1URL = "https://media.licdn.com/dms/image/D4E03AQFQ_O2xZmohLw/profile-displayphoto-shrink_200_200/0/1673061580437?e=1695254400&v=beta&t=vIxS8L68XYG0ueY7HA-h68EOiR25JMVEnU5wpSYmhcM";
@@ -58,11 +56,9 @@ const image2URL = "https://media.licdn.com/dms/image/C560BAQHruIzQQWOxYg/company
 const image3URL = "https://media.licdn.com/dms/image/C5616AQGY9JRJ2miYZA/profile-displaybackgroundimage-shrink_350_1400/0/1631112161905?e=1695859200&v=beta&t=UDug1_GeB5KnynWNY18iDXfKphcXlFoQJ_3M9vXfsvM";
 const image4URL = "https://media.licdn.com/dms/image/D563DAQEPMw8GW-P70Q/image-scale_191_1128/0/1673395795668?e=1690837200&v=beta&t=fJazaxdz2LwVVyeA2dHyUfwTP6By-lwxSyXq0ojM8SY ";
 
-const Home = () => {
-    
 
-    return (
-        <Container>
+const Home = () => {
+    return ( <Container>
             <Title> <h3> Welcome! Learn more about us here:</h3>
             </Title>
             
@@ -94,4 +90,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default Home; 

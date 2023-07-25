@@ -10,7 +10,8 @@ color: var(--textColor);
     padding: 10px 5px;
     background-color: var(--mainColor);
     border-radius: 0 50px 0 50px;
-    width: 30%;
+    width: 100%;
+    max-width:80px;
 `;
 const Li = styled.li`
 

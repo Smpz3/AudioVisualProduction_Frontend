@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
+
 import { getById, updateUser } from "../../services/users.services";
 
 
@@ -29,23 +30,23 @@ const InputBtn = styled.input`
 `;
 
 
-const UpdateProfile = () => {
+
+const UserDetails = () => {
 
     const { register, handleSubmit, reset } = useForm();
     const { userID } = useParams();
     const navigate = useNavigate();
 
-
     useEffect(() => {
         getById(userID)
             .then((data) => {
-                [data] = data;
+                [data] = data
+                console.log(data);
                 reset(data);
             })
             .catch(error => console.log(error));
 
     }, []);
-
 
 
     const sendForm = async (values) => {
@@ -60,12 +61,11 @@ const UpdateProfile = () => {
         // Success edition management
         alert('Updated successfully :)');
 
-        navigate('/profile');
-        navigate(0);
-    }
+        navigate('/usersList');
+    };
 
 
-    return <div><Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
+    return <div>{userID}<Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
         <div className="mb-3">
             <label className="form-label">Name</label>
             <Input
@@ -122,19 +122,11 @@ const UpdateProfile = () => {
                 {...register('address')}
             />
         </div>
-        <div className="mb-3">
-            <label className="form-label">Password</label>
-            <Input
-                type="password"
-                className="form-control"
-                {...register('password')}
-            />
-        </div>
         <InputBtn className="btn btn-info" type="submit" value="Accept Changes" />
 
-        <InputBtn className="btn btn-danger" value="Delete my user" />
+        <InputBtn className="btn btn-danger" value="Delete user" />
 
     </Form></div>
 }
 
-export default UpdateProfile;
+export default UserDetails;
