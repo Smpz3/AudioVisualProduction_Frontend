@@ -1,11 +1,10 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import { useQuery } from "react-query";
 import { useEffect } from "react";
 
-import { getById, getProfile, updateUser } from "../../services/users.services";
-import { getUsers } from "../../services/admin.services";
+import { getById, updateUser } from "../../services/users.services";
+
 
 const Form = styled.form`
     margin-top:50px;
@@ -33,22 +32,36 @@ const InputBtn = styled.input`
 const UpdateProfile = () => {
 
     const { register, handleSubmit, reset } = useForm();
+    const { userID } = useParams();
+    const navigate = useNavigate();
 
-    // const { userID } = useParams();
-    // console.log(userID);
-    // const { data, status } = useQuery(['getProfile', userID], getById);
 
-    const { data, status } = useQuery('profile', getProfile);
-    console.log(data);
-    if (status === 'loading') return <h2>Getting Characters..</h2>;
-    if (status === 'error') return <h2>Download failed</h2>;
+    useEffect(() => {
+        getById(userID)
+            .then((data) => {
+                [data] = data;
+                reset(data);
+            })
+            .catch(error => console.log(error));
 
-    /* me devuelve array con 1 objeto */
+    }, []);
+
+
 
     const sendForm = async (values) => {
-        reset(data)
-        // const { data } = await updateUser(userID, values);
-        console.log(values);
+
+        const data = await updateUser(userID, values);
+
+        if (data.error) {
+            // Error management
+            alert('Error in the edition, check your data.');
+        };
+
+        // Success edition management
+        alert('Updated successfully :)');
+
+        navigate('/profile');
+        navigate(0);
     }
 
 

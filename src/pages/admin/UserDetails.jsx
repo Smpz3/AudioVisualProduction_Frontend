@@ -42,7 +42,6 @@ const UserDetails = () => {
             .then((data) => {
                 [data] = data
                 console.log(data);
-                // setValue('name', data.name)
                 reset(data);
             })
             .catch(error => console.log(error));
@@ -56,7 +55,7 @@ const UserDetails = () => {
 
         if (data.error) {
             // Error management
-            alert('Error in the edition, check your data.')
+            alert('Error in the edition, check your data.');
         };
 
         // Success edition management
