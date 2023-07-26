@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { deleteProfile, getProfile, updateUser } from "../../services/users.services";
 
@@ -34,22 +34,21 @@ const UpdateProfile = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const navigate = useNavigate();
-
+    const [user, setUser] = useState({});
 
     useEffect(() => {
+
         getProfile()
             .then((data) => {
-                console.log(data);
+                setUser(data)
                 reset(data);
             })
             .catch(error => console.log(error));
-
     }, []);
 
-
     const sendForm = async (values) => {
-
-        const data = await updateUser(data.id, values);
+        const data = await updateUser(user.id, values);
+        console.log(user.id);
 
         // Error management
         if (data.error) {
@@ -132,7 +131,7 @@ const UpdateProfile = () => {
         <InputBtn className="btn btn-info" type="submit" value="Accept Changes" />
 
         <InputBtn className="btn btn-danger" value="Delete my user" onClick={async () => {
-            await deleteProfile(userID);
+            await deleteProfile(user.id);
             navigate('/profile');
         }} />
 

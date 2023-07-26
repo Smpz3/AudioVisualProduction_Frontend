@@ -81,7 +81,7 @@ const Audios = () => {
   const [selectedAudio, setSelectedAudio] = useState(null);
   const [remainingTime, setRemainingTime] = useState({ days: 0, hours: 0, minutes: 0 });
   const [favorites, setFavorites] = useState([]);
-  console.log(data);
+
   useEffect(() => {
     const targetTime = new Date('2023-09-01T14:00:00-04:00');
     const updateCountdown = () => {

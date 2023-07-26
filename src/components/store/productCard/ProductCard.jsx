@@ -4,8 +4,10 @@ import classes from './ProductCard.module.css'
 
 const ProductCard = ({ product, selectedProduct }) => {
 
+    // console.log(product.id);
+    // createProductFavs(product.id);
+
     const addProduct = () => {
-        createProductFavs(product.id);
         if (selectedProduct)
             selectedProduct(product);
     }

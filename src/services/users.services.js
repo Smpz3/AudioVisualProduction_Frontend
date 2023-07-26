@@ -21,11 +21,16 @@ const getById = async (userID) => {
 };
 
 const deleteProfile = async (userID) => {
-    try {
-        const response = await axios.delete(`${baseUrl}/${userID}`);
-        return response.data;
-    } catch (error) {
-        return error.message;
+
+    const drop = window.confirm('You are going to delete this profile. Are you sure?');
+
+    if (drop) {
+        try {
+            const response = await axios.delete(`${baseUrl}/${userID}`);
+            return response.data;
+        } catch (error) {
+            return error.message;
+        };
     };
 };
 
@@ -52,7 +57,6 @@ const createMusicFavs = async (values) => {
 
 const createCharFavs = async (values) => {
     try {
-        console.log(values);
         let fav = {
             "characterID": values
         }
