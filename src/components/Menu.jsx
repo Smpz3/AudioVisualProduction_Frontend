@@ -40,15 +40,15 @@ const Li = styled.li`
 
 const items = [
   /* status 0,1,2 en todos 0 todos 1 userloged 2 admin */
-  { path: '/', label: 'Home', always: true, status: 0 },
-  { path: '/shows', label: 'Shows', always: true, status: 0 },
-  { path: '/characters', label: 'Characters', always: true, status: 0 },
-  { path: '/audios', label: 'Audios', always: true, status: 0 },
-  { path: '/store', label: 'Store', always: true, status: 0 },
-  { path: '/register', label: 'Register', logged: false, status: 0 },
-  { path: '/login', label: 'Login', logged: false, status: 0 },
-  { path: '/usersList', label: 'UsersList', logged: true, status: 0 },
-  { path: '/profile', label: 'Profile', logged: true, status: 0 },
+  { path: '/', label: 'Home', always: true },
+  { path: '/shows', label: 'Shows', always: true },
+  { path: '/characters', label: 'Characters', always: true },
+  { path: '/audios', label: 'Audios', always: true },
+  { path: '/store', label: 'Store', always: true },
+  { path: '/register', label: 'Register', logged: false },
+  { path: '/login', label: 'Login', logged: false },
+  { path: '/usersList', label: 'UsersList', logged: true },
+  { path: '/profile', label: 'Profile', logged: true },
 ];
 
 const Menu = () => {
