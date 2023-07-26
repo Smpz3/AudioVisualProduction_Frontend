@@ -6,6 +6,7 @@ import { deleteProfile, getProfile } from "../../services/users.services";
 import CharFavCard from "../../components/characters/CharFavCard";
 import AudioFavCard from "../../components/audios/AudioFavCard";
 import ShowFavCard from "../../components/shows/ShowFavCard";
+import ProductsFavCard from "../../components/store/productCard/ProductsFavCard";
 
 
 const FlexWrapper = styled.div`
@@ -92,7 +93,8 @@ const Profile = () => {
                 <H2>My Products</H2>
                 <FlexWrapper className="col-12">
                     <div>
-                        <h4> Products list</h4>
+                        <h4>Cart</h4>
+                        <ProductsFavCard />
                     </div>
                 </FlexWrapper>
             </div>
@@ -114,14 +116,6 @@ const Profile = () => {
                 </div>
             </div>
         </FlexWrapper>
-        <H2>My Products</H2>
-        <FlexWrapper className="col-12">
-            <div>
-                <h4> Products list</h4>
-            </div>
-        </FlexWrapper>
-
-
 
     </div>
 }

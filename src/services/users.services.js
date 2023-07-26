@@ -88,8 +88,17 @@ const getUserShows = async () => {
     };
 };
 
+const getUserProducts = async () => {
+    try {
+        const response = await axios.get(`${baseUrl}/products`);
+        return response.data
+    } catch (error) {
+        return error.message;
+    };
+};
+
 
 
 export {
-    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs, getUserCharacters, getUserAudios, getUserShows
+    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs, getUserCharacters, getUserAudios, getUserShows, getUserProducts
 }

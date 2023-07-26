@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 
 import { getUserCharacters } from '../../services/users.services';
-import classes from './CharCard.module.css'
+import classes from './CharFavCard.module.css'
 
 const CharFavCard = () => {
 
