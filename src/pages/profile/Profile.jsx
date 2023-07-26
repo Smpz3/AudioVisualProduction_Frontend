@@ -77,7 +77,7 @@ const Profile = () => {
                         <li>{data.address}</li>
                         <li>{data.phone}</li>
                         <li>{data.password}</li>
-                        <Link to={`/profile/edit/${data.id}`}>
+                        <Link to={`/profile/edit`}>
                             <EditBtn className="btn">Edit</EditBtn>
                         </Link>
                         <BtnDel className="btn btn-danger" onClick={async () => {

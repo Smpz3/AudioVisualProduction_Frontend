@@ -37,7 +37,7 @@ function App() {
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
             <Route path='/profile' element={<Profile />} />
-            <Route path='/profile/edit/:userID' element={<UpdateProfile />} />
+            <Route path='/profile/edit' element={<UpdateProfile />} />
             <Route element={<ProtectedRoute redirectPath='/login' />}>
               <Route path='/usersList' element={<UsersList />} />
               <Route path='/usersList/userDetails/:userID' element={<UserDetails />} />

@@ -154,7 +154,7 @@ const Audios = () => {
                   isFavorite={favorites.some((favAudio) => favAudio.url === audio.url)}
                   onClick={() => {
                     handleToggleFavorite(audio);
-                    createMusicFavs(audio.id)
+                    createMusicFavs(audio.id);
                   }}
                 />
               </AudioTitle>

@@ -1,9 +1,9 @@
-import { useNavigate, useParams } from "react-router";
+import { useNavigate } from "react-router";
 import styled from "styled-components";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
 
-import { deleteProfile, getById, updateUser } from "../../services/users.services";
+import { deleteProfile, getProfile, updateUser } from "../../services/users.services";
 
 
 const Form = styled.form`
@@ -32,14 +32,13 @@ const InputBtn = styled.input`
 const UpdateProfile = () => {
 
     const { register, handleSubmit, reset } = useForm();
-    const { userID } = useParams();
+
     const navigate = useNavigate();
 
 
     useEffect(() => {
-        getById(userID)
+        getProfile()
             .then((data) => {
-                [data] = data;
                 reset(data);
             })
             .catch(error => console.log(error));
@@ -50,10 +49,10 @@ const UpdateProfile = () => {
 
     const sendForm = async (values) => {
 
-        const data = await updateUser(userID, values);
+        const data = await updateUser(data.id, values);
 
+        // Error management
         if (data.error) {
-            // Error management
             alert('Error in the edition, check your data.');
         };
 

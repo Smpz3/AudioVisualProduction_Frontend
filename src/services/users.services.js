@@ -40,26 +40,63 @@ const updateUser = async (userID, values) => {
 
 const createMusicFavs = async (values) => {
     try {
-        console.log(values);
-        const response = await axios.post(`${baseUrl}/profile/favs/audios`, values);
-        console.log(response);
-        console.log(response.data);
-        return JSON.parse(response.config.data)
+        let fav = {
+            "musicID": values
+        }
+        const response = await axios.post(`${baseUrl}/profile/favs/audios`, fav);
+        return response.data
     } catch (error) {
         return error.message;
     };
 };
+
 const createCharFavs = async (values) => {
     try {
         console.log(values);
-        // const response = await axios.post(`${baseUrl}/profile/favs/characters`, values);
-        // console.log(response);
+        let fav = {
+            "characterID": values
+        }
+        const response = await axios.post(`${baseUrl}/profile/favs/characters`, fav);
+        console.log(response);
+        console.log(response.data);
         // console.log(response.data);
-        // return JSON.parse(response.config.data)
+        return response.data
     } catch (error) {
         return error.message;
     };
 };
+
+const createCharFavs = async (values) => {
+    try {
+        console.log(values);
+        let fav = {
+            "characterID": values
+        }
+        const response = await axios.post(`${baseUrl}/profile/favs/characters`, fav);
+        console.log(response);
+        console.log(response.data);
+        // console.log(response.data);
+        return response.data
+    } catch (error) {
+        return error.message;
+    };
+};
+
+// const createCharFavs = async (values) => {
+//     try {
+//         console.log(values);
+//         let fav = {
+//             "characterID": values
+//         }
+//         const response = await axios.post(`${baseUrl}/profile/favs/characters`, fav);
+//         console.log(response);
+//         console.log(response.data);
+//         // console.log(response.data);
+//         return response.data
+//     } catch (error) {
+//         return error.message;
+//     };
+// };
 
 const getUserCharacters = async () => {
     try {
