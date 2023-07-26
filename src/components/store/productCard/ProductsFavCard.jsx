@@ -16,7 +16,7 @@ const ProductsFavCard = () => {
             data.map((product, index) => (
                 <div key={index}>
                     <h5>{product.name}</h5>
-                    <img src={product.image} alt="Character" />
+                    <img src={product.image} alt="Product" />
                     <p>Price: <span>${product.price}</span></p>
                     <button className={classes.BuyBtn}>Buy</button>
                     <button className={classes.DelBtn}>Del</button>

@@ -32,7 +32,7 @@ const deleteProfile = async (userID) => {
 const updateUser = async (userID, values) => {
     try {
         const response = await axios.put(`${baseUrl}/update/${userID}`, values);
-        return JSON.parse(response.config.data)
+        return JSON.parse(response.config.data);
     } catch (error) {
         return error.message;
     };
@@ -44,7 +44,7 @@ const createMusicFavs = async (values) => {
             "musicID": values
         }
         const response = await axios.post(`${baseUrl}/profile/favs/audios`, fav);
-        return response.data
+        return response.data;
     } catch (error) {
         return error.message;
     };
@@ -57,51 +57,45 @@ const createCharFavs = async (values) => {
             "characterID": values
         }
         const response = await axios.post(`${baseUrl}/profile/favs/characters`, fav);
-        console.log(response);
-        console.log(response.data);
-        // console.log(response.data);
-        return response.data
+        return response.data;
     } catch (error) {
         return error.message;
     };
 };
 
-const createCharFavs = async (values) => {
+const createShowFavs = async (values) => {
     try {
         console.log(values);
         let fav = {
-            "characterID": values
+            "showID": values
         }
-        const response = await axios.post(`${baseUrl}/profile/favs/characters`, fav);
-        console.log(response);
-        console.log(response.data);
-        // console.log(response.data);
-        return response.data
+        const response = await axios.post(`${baseUrl}/profile/favs/shows`, fav);
+        return response.data;
     } catch (error) {
         return error.message;
     };
 };
 
-// const createCharFavs = async (values) => {
-//     try {
-//         console.log(values);
-//         let fav = {
-//             "characterID": values
-//         }
-//         const response = await axios.post(`${baseUrl}/profile/favs/characters`, fav);
-//         console.log(response);
-//         console.log(response.data);
-//         // console.log(response.data);
-//         return response.data
-//     } catch (error) {
-//         return error.message;
-//     };
-// };
+const createProductFavs = async (values) => {
+    try {
+        console.log(values);
+        let fav = {
+            "productID": values
+        }
+        const response = await axios.post(`${baseUrl}/profile/favs/products`, fav);
+        console.log(response);
+        console.log(response.data);
+
+        return response.data
+    } catch (error) {
+        return error.message;
+    };
+};
 
 const getUserCharacters = async () => {
     try {
         const response = await axios.get(`${baseUrl}/characters`);
-        return response.data
+        return response.data;
     } catch (error) {
         return error.message;
     };
@@ -110,7 +104,7 @@ const getUserCharacters = async () => {
 const getUserAudios = async () => {
     try {
         const response = await axios.get(`${baseUrl}/audios`);
-        return response.data
+        return response.data;
     } catch (error) {
         return error.message;
     };
@@ -119,7 +113,7 @@ const getUserAudios = async () => {
 const getUserShows = async () => {
     try {
         const response = await axios.get(`${baseUrl}/shows`);
-        return response.data
+        return response.data;
     } catch (error) {
         return error.message;
     };
@@ -128,7 +122,7 @@ const getUserShows = async () => {
 const getUserProducts = async () => {
     try {
         const response = await axios.get(`${baseUrl}/products`);
-        return response.data
+        return response.data;
     } catch (error) {
         return error.message;
     };
@@ -137,5 +131,5 @@ const getUserProducts = async () => {
 
 
 export {
-    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs, getUserCharacters, getUserAudios, getUserShows, getUserProducts
+    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs, getUserCharacters, getUserAudios, getUserShows, getUserProducts, createShowFavs, createProductFavs
 }

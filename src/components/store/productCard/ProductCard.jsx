@@ -1,9 +1,11 @@
 import { isLogged } from '../../../services/admin.services';
+import { createProductFavs } from '../../../services/users.services';
 import classes from './ProductCard.module.css'
 
 const ProductCard = ({ product, selectedProduct }) => {
 
     const addProduct = () => {
+        createProductFavs(product.id);
         if (selectedProduct)
             selectedProduct(product);
     }
@@ -16,7 +18,7 @@ const ProductCard = ({ product, selectedProduct }) => {
         {isLogged() &&
             <button className={classes.addBtn} onClick={addProduct}>Add</button>
         }
-    </div>;
+    </div>
 }
 
 export default ProductCard;

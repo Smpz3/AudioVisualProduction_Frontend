@@ -7,7 +7,7 @@ const ShowFavCard = () => {
 
     let { data, status } = useQuery('showFavs', getUserShows);
 
-    if (status === 'loading') return <h2>Getting Audios..</h2>;
+    if (status === 'loading') return <h2>Getting Shows..</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
 
     console.log(data);

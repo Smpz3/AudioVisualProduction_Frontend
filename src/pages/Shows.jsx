@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 
 import { getShows } from '../services/shows.services'
 import FavoriteShowButton from '../components/shows/showfav'
+import { createShowFavs } from '../services/users.services';
 
 const CenteredPlayer = styled.div`
   display: flex;
@@ -89,7 +90,10 @@ const Shows = () => {
                         <CenteredFavoriteButton>
                             <FavoriteShowButton
                                 isFavorite={favorites.some((favShow) => favShow.url === show.url)}
-                                onClick={() => handleToggleFavorite(show)}
+                                onClick={() => {
+                                    handleToggleFavorite(show)
+                                    createShowFavs(show.id)
+                                }}
                             />
                         </CenteredFavoriteButton>
 
