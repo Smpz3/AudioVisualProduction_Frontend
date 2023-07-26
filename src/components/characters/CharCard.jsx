@@ -3,8 +3,6 @@ import classes from './CharCard.module.css'
 
 const CharCard = ({ character }) => {
 
-
-
     return <div className={classes.card}>
         <h4>{character.name}</h4>
         <img src={character.image} alt="Character" />

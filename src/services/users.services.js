@@ -61,11 +61,10 @@ const createCharFavs = async (values) => {
     };
 };
 
-const getUserCharacters = async (userID) => {
+const getUserCharacters = async () => {
     try {
-        const response = await axios.get(`${baseUrl}/characters/${userID}`);
-        console.log(response);
-        return JSON.parse(response.config.data)
+        const response = await axios.get(`${baseUrl}/characters`);
+        return response.data[0]
     } catch (error) {
         return error.message;
     };

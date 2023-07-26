@@ -1,3 +1,4 @@
+import { isLogged } from '../../../services/admin.services';
 import classes from './ProductCard.module.css'
 
 const ProductCard = ({ product, selectedProduct }) => {
@@ -12,7 +13,9 @@ const ProductCard = ({ product, selectedProduct }) => {
         <img src={product.image} alt="Product" />
         <p>Precio: ${product.price} </p>
         <p>{product.description}</p>
-        <button className={classes.addBtn} onClick={addProduct}>Add</button>
+        {isLogged() &&
+            <button className={classes.addBtn} onClick={addProduct}>Add</button>
+        }
     </div>;
 }
 

@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 
 import { deleteProfile, getProfile, getUserCharacters } from "../../services/users.services";
+import CharFav from "../../components/characters/CharFav";
 
 const FlexWrapper = styled.div`
     background-color: var(--mainColor);
@@ -54,8 +55,8 @@ const BtnDel = styled.button`
 const Profile = () => {
 
     const { data, status, refetch } = useQuery('profile', getProfile);
-    /* const { data2, status2 } = useQuery('charFavs', getUserCharacters); */
-
+    /* const { data2, status2 } = useQuery('charFavs', getUserCharacters);  mover a un componente que recupera los datos del caracter */
+    /* console.log(data2) */
 
     if (status === 'loading') return <h2>Getting Characters..</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
@@ -91,6 +92,7 @@ const Profile = () => {
                 </div>
                 <h3>Characters</h3>
                 <div>
+                    <CharFav />
                 </div>
                 <h3>Audios</h3>
                 <div>
