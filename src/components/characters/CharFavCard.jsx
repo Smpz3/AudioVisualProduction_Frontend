@@ -10,7 +10,6 @@ const CharFavCard = () => {
     if (status === 'loading') return <h2>Getting Characters..</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
 
-    console.log(data);
     return <div className={classes.card}>
         {data &&
             data.map((char, index) => (

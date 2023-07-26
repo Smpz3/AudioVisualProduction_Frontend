@@ -10,7 +10,6 @@ const ProductsFavCard = () => {
     if (status === 'loading') return <h2>Getting Products...</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
 
-    console.log(data);
     return <div className={classes.card}>
         {data &&
             data.map((product, index) => (

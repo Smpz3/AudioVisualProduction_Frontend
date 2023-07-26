@@ -39,12 +39,12 @@ const UpdateProfile = () => {
     useEffect(() => {
         getProfile()
             .then((data) => {
+                console.log(data);
                 reset(data);
             })
             .catch(error => console.log(error));
 
     }, []);
-
 
 
     const sendForm = async (values) => {

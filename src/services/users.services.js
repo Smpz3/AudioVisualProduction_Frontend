@@ -65,7 +65,6 @@ const createCharFavs = async (values) => {
 
 const createShowFavs = async (values) => {
     try {
-        console.log(values);
         let fav = {
             "showID": values
         }
@@ -78,14 +77,10 @@ const createShowFavs = async (values) => {
 
 const createProductFavs = async (values) => {
     try {
-        console.log(values);
         let fav = {
             "productID": values
         }
         const response = await axios.post(`${baseUrl}/profile/favs/products`, fav);
-        console.log(response);
-        console.log(response.data);
-
         return response.data
     } catch (error) {
         return error.message;
