@@ -2,8 +2,11 @@ import styled from "styled-components";
 import { useQuery } from "react-query";
 import { Link } from "react-router-dom";
 
-import { deleteProfile, getProfile, getUserCharacters } from "../../services/users.services";
-import CharFav from "../../components/characters/CharFav";
+import { deleteProfile, getProfile } from "../../services/users.services";
+import CharFavCard from "../../components/characters/CharFavCard";
+import AudioFavCard from "../../components/audios/AudioFavCard";
+import ShowFavCard from "../../components/shows/ShowFavCard";
+
 
 const FlexWrapper = styled.div`
     background-color: var(--mainColor);
@@ -55,50 +58,69 @@ const BtnDel = styled.button`
 const Profile = () => {
 
     const { data, status, refetch } = useQuery('profile', getProfile);
-    /* const { data2, status2 } = useQuery('charFavs', getUserCharacters);  mover a un componente que recupera los datos del caracter */
-    /* console.log(data2) */
 
-    if (status === 'loading') return <h2>Getting Characters..</h2>;
+    if (status === 'loading') return <h2>Getting Profile..</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
 
     return <div className="container">
-        <H2>My Profile</H2>
-        <FlexWrapper className="col-6">
+        <div className="d-flex">
+            <div className="me-5">
+                <H2>My Profile</H2>
+                <FlexWrapper className="col-12">
 
-            <Ul key={data.id}>
-                <li>{data.name} {data.surname}</li>
-                <li>{data.email}</li>
-                <li>{data.age}</li>
-                <li>{data.dni}</li>
-                <li>{data.address}</li>
-                <li>{data.phone}</li>
-                <li>{data.password}</li>
-                <Link to={`/profile/edit/${data.id}`}>
-                    <EditBtn className="btn">Edit</EditBtn>
-                </Link>
-                <BtnDel className="btn btn-danger" onClick={async () => {
-                    await deleteProfile(data.id);
-                    refetch();
-                }}>Delete</BtnDel>
+                    <Ul key={data.id}>
+                        <li>{data.name} {data.surname}</li>
+                        <li>{data.email}</li>
+                        <li>{data.age}</li>
+                        <li>{data.dni}</li>
+                        <li>{data.address}</li>
+                        <li>{data.phone}</li>
+                        <li>{data.password}</li>
+                        <Link to={`/profile/edit/${data.id}`}>
+                            <EditBtn className="btn">Edit</EditBtn>
+                        </Link>
+                        <BtnDel className="btn btn-danger" onClick={async () => {
+                            await deleteProfile(data.id);
+                            refetch();
+                        }}>Delete</BtnDel>
 
-            </Ul>
+                    </Ul>
 
-        </FlexWrapper>
-        <H2>My Favs</H2>
-        <FlexWrapper className="col-6">
+                </FlexWrapper>
+            </div>
             <div>
-                <h3>Shows</h3>
+                <H2>My Products</H2>
+                <FlexWrapper className="col-12">
+                    <div>
+                        <h4> Products list</h4>
+                    </div>
+                </FlexWrapper>
+            </div>
+        </div>
+        <H2>My Favs</H2>
+        <FlexWrapper className="col-12">
+            <div className="d-flex">
                 <div>
+                    <h3>Shows</h3>
+                    <ShowFavCard />
                 </div>
-                <h3>Characters</h3>
                 <div>
-                    <CharFav />
+                    <h3>Characters</h3>
+                    <CharFavCard />
                 </div>
-                <h3>Audios</h3>
                 <div>
+                    <h3>Audios</h3>
+                    <AudioFavCard />
                 </div>
             </div>
         </FlexWrapper>
+        <H2>My Products</H2>
+        <FlexWrapper className="col-12">
+            <div>
+                <h4> Products list</h4>
+            </div>
+        </FlexWrapper>
+
 
 
     </div>

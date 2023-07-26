@@ -8,23 +8,21 @@
 .card {
     background-color: var(--mainColor);
     color: var(--mainColorLight);
-    width: 30%;
+    width: 90%;
     min-width: 200px;
-    max-width: 250px;
     padding: 20px;
     border: 2px solid var(--mainColorLight);
     border-radius: 0 50px 0 50px;
-    gap: 10px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.card img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 50px;
-    margin: 5px 0;
+.div {
+    margin: 10px;
+    line-height: 1;
+
 }
 
 .card span {
@@ -32,7 +30,7 @@
 }
 
 .DelBtn {
-    padding: 1px 5px;
+    padding: 3px 5px;
     background-color: var(--mainColor);
     color: var(--textColor);
     border-radius: 0 50px 0 50px;

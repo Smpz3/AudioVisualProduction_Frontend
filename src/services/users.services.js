@@ -64,7 +64,25 @@ const createCharFavs = async (values) => {
 const getUserCharacters = async () => {
     try {
         const response = await axios.get(`${baseUrl}/characters`);
-        return response.data[0]
+        return response.data
+    } catch (error) {
+        return error.message;
+    };
+};
+
+const getUserAudios = async () => {
+    try {
+        const response = await axios.get(`${baseUrl}/audios`);
+        return response.data
+    } catch (error) {
+        return error.message;
+    };
+};
+
+const getUserShows = async () => {
+    try {
+        const response = await axios.get(`${baseUrl}/shows`);
+        return response.data
     } catch (error) {
         return error.message;
     };
@@ -73,5 +91,5 @@ const getUserCharacters = async () => {
 
 
 export {
-    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs, getUserCharacters
+    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs, getUserCharacters, getUserAudios, getUserShows
 }
