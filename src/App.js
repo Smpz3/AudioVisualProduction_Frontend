@@ -11,7 +11,7 @@ import Shows from './pages/Shows';
 import Audios from './pages/Audios';
 import Home from './pages/Home';
 import UsersList from './pages/admin/UsersList';
-import ProtectedRoute from './components/ProtectedRoute';
+import { ProtectedAdminRoute, ProtectedRoute } from './components/ProtectedRoute';
 import Profile from './pages/profile/Profile';
 import UpdateProfile from './pages/profile/UpdateProfile';
 import Register from './pages/admin/Register';
@@ -38,7 +38,7 @@ function App() {
             <Route path='/login' element={<Login />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/profile/edit' element={<UpdateProfile />} />
-            <Route element={<ProtectedRoute redirectPath='/login' />}>
+            <Route element={<ProtectedAdminRoute redirectPath='/login' />}>
               <Route path='/usersList' element={<UsersList />} />
               <Route path='/usersList/userDetails/:userID' element={<UserDetails />} />
             </Route>

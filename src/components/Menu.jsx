@@ -4,6 +4,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 
 import '../styles/App.css'
 import { isLogged } from "../services/admin.services";
+import { isAdmin } from "../services/users.services";
 
 const Nav = styled.nav`
   width: 100%;
@@ -47,7 +48,7 @@ const items = [
   { path: '/store', label: 'Store', always: true },
   { path: '/register', label: 'Register', logged: false },
   { path: '/login', label: 'Login', logged: false },
-  { path: '/usersList', label: 'UsersList', logged: true },
+  { path: '/usersList', label: 'UsersList', logged: true, admin: true },
   { path: '/profile', label: 'Profile', logged: true },
 ];
 
@@ -81,6 +82,9 @@ const Menu = () => {
           // console.log(item)
           if (isLogged() === item.logged) {
 
+            if (item.admin && isAdmin() !== item.admin) {
+              return null
+            }
             return <Link key={index} to={item.path}>
               <Li>{item.label}</Li>
             </Link>

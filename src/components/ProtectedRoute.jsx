@@ -1,4 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { isAdmin } from "../services/users.services";
 
 
 const ProtectedRoute = ({ redirectPath }) => {
@@ -6,10 +7,21 @@ const ProtectedRoute = ({ redirectPath }) => {
         alert('Protected route. You must be logged in.')
         return <Navigate to={redirectPath} />
     };
-    /* isadmin */
 
 
     return <Outlet />;
 };
 
-export default ProtectedRoute;
+const ProtectedAdminRoute = ({ redirectPath }) => {
+
+    /* isadmin */
+    if (!isAdmin()) {
+        alert('Protected route. You must be admin.')
+        return <Navigate to={redirectPath} />
+    }
+
+
+    return <Outlet />;
+};
+
+export { ProtectedRoute, ProtectedAdminRoute };

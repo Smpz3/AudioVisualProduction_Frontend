@@ -5,11 +5,13 @@ import classes from './ProductCard.module.css'
 const ProductCard = ({ product, selectedProduct }) => {
 
     // console.log(product.id);
-    // createProductFavs(product.id);
 
-    const addProduct = () => {
-        if (selectedProduct)
+    const addProduct = async () => {
+        if (selectedProduct) {
+
             selectedProduct(product);
+            await createProductFavs(product.id);
+        }
     }
 
     return <div className={classes.card}>

@@ -1,4 +1,5 @@
 import axios from "axios"
+import jwtDecode from "jwt-decode";
 
 const baseUrl = 'http://localhost:3000/api/users'
 
@@ -127,8 +128,20 @@ const getUserProducts = async () => {
     };
 };
 
+const isAdmin = () => {
+    if (localStorage.getItem('user_token')) {
+        const obj = jwtDecode(localStorage.getItem('user_token'))
+        if (obj.user_rol === 'admin') {
+            return true
+        } else {
+            return false
+        }
+    } else {
+        return false
+    }
+}
 
 
 export {
-    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs, getUserCharacters, getUserAudios, getUserShows, getUserProducts, createShowFavs, createProductFavs
+    getProfile, getById, updateUser, deleteProfile, createMusicFavs, createCharFavs, getUserCharacters, getUserAudios, getUserShows, getUserProducts, createShowFavs, createProductFavs, isAdmin
 }
