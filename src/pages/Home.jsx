@@ -44,7 +44,7 @@ const Text = styled.p`
 `;
 
 const Title = styled.h3`
-  font-size: 24px;
+  font-size: 30px;
   margin-top: 20px;
   color: var(--secondaryColor);
   display: flex;
@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <Container>
       <Title>
-        <h3>Welcome! Learn more about us here:</h3>
+        Welcome! Learn more about us here:
       </Title>
       <ImageContainer>
         <Div>

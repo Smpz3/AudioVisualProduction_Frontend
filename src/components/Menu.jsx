@@ -86,6 +86,7 @@ const Menu = () => {
               <Li>{item.label}</Li>
             </Link>
           }
+          return null
         })}
         {isLogged() && (
           <NavLink onClick={onLogout}>

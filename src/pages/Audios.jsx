@@ -122,7 +122,7 @@ const Audios = () => {
 
   return (
     <CenteredPlayer>
-      <h1 style={{ margin: '10px', }}> Our Songs!</h1>
+      <h1 style={{ margin: '10px' }}> Our Songs!</h1>
       <div>
         {selectedAudio && (
           <AudioPlayerContainer>
