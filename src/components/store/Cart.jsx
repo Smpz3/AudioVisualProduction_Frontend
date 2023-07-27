@@ -23,13 +23,13 @@ const Cart = ({ products, deletedProduct }) => {
         <ul className="list-group">
             {products?.map((prod, index) => (
                 <li className="list-group-item d-flex justify-content-between" key={index}>
-                    {prod.name}, {prod.units}uds.  x {prod.price}€
+                    {prod.name}, {prod.units}uds.  x $ {prod.price}
                     <BtnDel className="btn btn-danger" onClick={() => deletedProduct(index)}>Delete</BtnDel>
                 </li>
 
             ))}
         </ul>
     </div>;
-}
+};
 
 export default Cart;

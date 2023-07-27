@@ -25,6 +25,6 @@ const AudioFavCard = () => {
             ))}
 
     </div >
-}
+};
 
 export default AudioFavCard;

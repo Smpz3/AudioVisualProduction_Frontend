@@ -33,8 +33,8 @@ const Register = () => {
     const navigate = useNavigate();
 
     const sendForm = async (values) => {
+
         const response = await registerUser(values);
-        console.log(response);
 
         if (response.fatal) {
             return alert(response.fatal);
@@ -113,7 +113,7 @@ const Register = () => {
         </div>
         <InputBtn className="btn btn-info" type="submit" value="Send" />
 
-    </Form>;
-}
+    </Form>
+};
 
 export default Register;

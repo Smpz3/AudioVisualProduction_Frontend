@@ -10,6 +10,6 @@ const CharCard = ({ character }) => {
             createCharFavs(character.id);
         }}>Add</button>
     </div >
-}
+};
 
 export default CharCard;

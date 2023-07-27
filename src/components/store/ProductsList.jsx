@@ -21,9 +21,7 @@ const H2 = styled.h2`
 `;
 
 
-const ProductsList = ({ title, products, selectedProduct }
-) => {
-
+const ProductsList = ({ title, products, selectedProduct }) => {
 
     return <div>
         <H2>{title}</H2>
@@ -38,6 +36,6 @@ const ProductsList = ({ title, products, selectedProduct }
                 ))}
         </FlexWrapper>
     </div>;
-}
+};
 
 export default ProductsList;

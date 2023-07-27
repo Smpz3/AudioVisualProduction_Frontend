@@ -49,7 +49,6 @@ function App() {
         </div>
         <div className="page-container">
           <div className="content-wrap">
-
             <Footer />
           </div>
         </div>

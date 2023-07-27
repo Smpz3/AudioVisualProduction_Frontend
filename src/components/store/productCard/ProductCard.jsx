@@ -4,10 +4,8 @@ import classes from './ProductCard.module.css'
 
 const ProductCard = ({ product, selectedProduct }) => {
 
-
     const addProduct = async () => {
         if (selectedProduct) {
-
             selectedProduct(product);
             await createProductFavs(product.id);
         };
@@ -22,6 +20,6 @@ const ProductCard = ({ product, selectedProduct }) => {
             <button className={classes.addBtn} onClick={addProduct}>Add</button>
         }
     </div>
-}
+};
 
 export default ProductCard;

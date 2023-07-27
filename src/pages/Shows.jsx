@@ -63,8 +63,7 @@ const Shows = () => {
             setFavorites(favorites.filter((favShow) => favShow.url !== show.url));
         } else {
             setFavorites([...favorites, show]);
-        }
-        console.log('Updated Favorites:', favorites)
+        };
     };
 
 
@@ -96,14 +95,8 @@ const Shows = () => {
                                 }}
                             />
                         </CenteredFavoriteButton>
-
-
-
                     </ShowItem>
-
                 ))}
-
-
             </ShowList>
         </ShowListContainer>
     </CenteredPlayer>

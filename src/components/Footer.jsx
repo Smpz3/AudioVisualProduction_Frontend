@@ -18,12 +18,10 @@ const Footer = () => {
                         <a className="socials" href="https://www.linkedin.com/company/the-brightside-productions-llc" target="blank">
                             <ion-icon name="logo-linkedin"></ion-icon>
                         </a>
-
-
                     </p>
                 </div>
             </div>
         </div>
     )
-}
+};
 export default Footer; 

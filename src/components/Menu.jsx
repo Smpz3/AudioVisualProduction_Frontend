@@ -11,6 +11,7 @@ const Nav = styled.nav`
   border-bottom: 3px solid hotpink;
   margin-bottom: 10px;
 `;
+
 const H1 = styled.h1`
   font-size: 50px; 
   margin-top: 10px; 
@@ -40,7 +41,6 @@ const Li = styled.li`
 `;
 
 const items = [
-  /* status 0,1,2 en todos 0 todos 1 userloged 2 admin */
   { path: '/', label: 'Home', always: true },
   { path: '/shows', label: 'Shows', always: true },
   { path: '/characters', label: 'Characters', always: true },
@@ -59,7 +59,6 @@ const Menu = () => {
   const onLogout = () => {
 
     const drop = window.confirm('You are going to logout. Are you sure?');
-
     if (drop) {
       localStorage.removeItem('user_token');
       navigate('/');
@@ -73,13 +72,11 @@ const Menu = () => {
       <Ul>
         <H1 style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </H1>
         {items.filter((item) => item.always).map((item, index) => {
-          // console.log(item)
           return <Link key={index} to={item.path}>
             <Li>{item.label}</Li>
           </Link>
         })}
         {items.filter((item) => item.logged !== null).map((item, index) => {
-          // console.log(item)
           if (isLogged() === item.logged) {
 
             if (item.admin && isAdmin() !== item.admin) {
@@ -89,7 +86,6 @@ const Menu = () => {
               <Li>{item.label}</Li>
             </Link>
           }
-          /* otro filter con item.status===2 */
         })}
         {isLogged() && (
           <NavLink onClick={onLogout}>
@@ -99,5 +95,5 @@ const Menu = () => {
       </Ul>
     </Nav>
   </div>
-}
+};
 export default Menu; 

@@ -64,7 +64,7 @@ const Login = () => {
         </div>
         <InputBtn className="btn btn-info" type="submit" value="Send" />
 
-    </Form>;
-}
+    </Form>
+};
 
 export default Login;

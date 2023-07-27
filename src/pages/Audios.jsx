@@ -117,8 +117,7 @@ const Audios = () => {
       setFavorites(favorites.filter((favAudio) => favAudio.url !== audio.url));
     } else {
       setFavorites([...favorites, audio]);
-    }
-    console.log('Updated Favorites:', favorites);
+    };
   };
 
   return (
@@ -169,7 +168,6 @@ const Audios = () => {
         <CountdownLabel>Countdown:</CountdownLabel>
         <Countdown>{remainingTime.days} Days {remainingTime.hours} hours {remainingTime.minutes} minutes</Countdown>
       </PodcastSection>
-
 
     </CenteredPlayer>
   );

@@ -24,6 +24,6 @@ const ShowFavCard = () => {
             ))}
 
     </div >
-}
+};
 
 export default ShowFavCard;

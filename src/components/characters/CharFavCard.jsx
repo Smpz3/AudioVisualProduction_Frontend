@@ -20,6 +20,6 @@ const CharFavCard = () => {
                     <button className={classes.DelBtn}>Del</button>
                 </div >))}
     </div >
-}
+};
 
 export default CharFavCard;
