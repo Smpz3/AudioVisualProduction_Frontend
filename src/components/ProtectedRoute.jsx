@@ -3,25 +3,23 @@ import { isAdmin } from "../services/users.services";
 
 
 const ProtectedRoute = ({ redirectPath }) => {
+
     if (!localStorage.getItem('user_token')) {
-        alert('Protected route. You must be logged in.')
+        alert('Protected route. You must be logged in.');
         return <Navigate to={redirectPath} />
     };
 
-
-    return <Outlet />;
+    return <Outlet />
 };
 
 const ProtectedAdminRoute = ({ redirectPath }) => {
 
-    /* isadmin */
     if (!isAdmin()) {
-        alert('Protected route. You must be admin.')
+        alert('Protected route. You must be admin.');
         return <Navigate to={redirectPath} />
     }
 
-
-    return <Outlet />;
+    return <Outlet />
 };
 
 export { ProtectedRoute, ProtectedAdminRoute };

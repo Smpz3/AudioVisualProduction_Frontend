@@ -36,9 +36,11 @@ function App() {
             <Route path='/store' element={<Store />} />
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/profile' element={<Profile />} />
+            <Route element={<ProtectedRoute redirectPath='/login' />}>
+              <Route path='/profile' element={<Profile />} />
+            </Route>
             <Route path='/profile/edit' element={<UpdateProfile />} />
-            <Route element={<ProtectedAdminRoute redirectPath='/login' />}>
+            <Route element={<ProtectedAdminRoute redirectPath='/' />}>
               <Route path='/usersList' element={<UsersList />} />
               <Route path='/usersList/userDetails/:userID' element={<UserDetails />} />
             </Route>
@@ -48,8 +50,8 @@ function App() {
         <div className="page-container">
           <div className="content-wrap">
 
+            <Footer />
           </div>
-          <Footer />
         </div>
       </BrowserRouter>
     </QueryClientProvider>
