@@ -89,7 +89,7 @@ const Profile = () => {
 
                 </FlexWrapper>
             </div>
-            <div>
+            <div className="col-6">
                 <H2>My Products</H2>
                 <FlexWrapper className="col-12">
                     <div>

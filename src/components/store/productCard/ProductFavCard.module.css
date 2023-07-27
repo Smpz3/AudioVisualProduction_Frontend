@@ -8,21 +8,21 @@
 .card {
     background-color: var(--mainColor);
     color: var(--mainColorLight);
-    width: 30%;
-    min-width: 200px;
-    max-width: 250px;
+    width: 100%;
+    margin: 0 3px;
+    max-width: 130px;
     padding: 20px;
     border: 2px solid var(--mainColorLight);
     border-radius: 0 50px 0 50px;
     gap: 10px;
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
     justify-content: space-between;
 }
 
 .card img {
-    width: 100%;
-    object-fit: cover;
+    width: px;
+    object-fit: 95cover;
     border-radius: 50px;
     margin: 5px 0;
 }
