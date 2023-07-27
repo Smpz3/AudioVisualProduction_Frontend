@@ -29,11 +29,25 @@ const getUsers = async (values) => {
     };
 };
 
+const deleteUser = async (userID) => {
+
+    const drop = window.confirm('You are going to delete this profile. Are you sure?');
+
+    if (drop) {
+        try {
+            const response = await axios.delete(`${baseUrl}/${userID}`);
+            return response.data;
+        } catch (error) {
+            return error.message;
+        };
+    };
+};
+
 const isLogged = () => {
     return localStorage.getItem('user_token') ? true : false;
 };
 
 
 export {
-    registerUser, loginUser, getUsers, isLogged
+    registerUser, loginUser, getUsers, isLogged, deleteUser
 }

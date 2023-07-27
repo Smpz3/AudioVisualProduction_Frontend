@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useQuery } from "react-query";
+
 import { getCharacters } from "../services/characters.services";
 import CharCard from "../components/characters/CharCard";
 

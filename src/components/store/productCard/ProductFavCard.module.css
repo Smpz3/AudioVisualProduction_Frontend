@@ -8,9 +8,9 @@
 .card {
     background-color: var(--mainColor);
     color: var(--mainColorLight);
-    width: 30%;
-    min-width: 200px;
-    max-width: 250px;
+    width: 100%;
+    margin: 0 3px;
+    max-width: 130px;
     padding: 20px;
     border: 2px solid var(--mainColorLight);
     border-radius: 0 50px 0 50px;
@@ -20,25 +20,41 @@
     justify-content: space-between;
 }
 
-.card h4 {
-    color: var(--mainColorLight);
-}
-
 .card img {
-    width: 100%;
-    object-fit: cover;
+    width: px;
+    object-fit: 95cover;
     border-radius: 50px;
+    margin: 5px 0;
 }
 
-.addFav {
-    color: var(--textColor);
-    padding: 10px 5px;
+.card span {
+    color: #5CE1E6
+}
+
+.BuyBtn {
+    padding: 1px 5px;
     background-color: var(--mainColor);
+    color: var(--secondaryColor);
     border-radius: 0 50px 0 50px;
     width: 50%;
 }
 
-.addFav:hover {
-    background-color: var(--secondaryColor);
+.BuyBtn:hover {
+    color: white;
+    background-color: lightgreen;
+    font-weight: bold;
+}
+
+.DelBtn {
+    padding: 1px 5px;
+    background-color: var(--mainColor);
+    color: var(--textColor);
+    border-radius: 0 50px 0 50px;
+    width: 50%;
+}
+
+.DelBtn:hover {
+    color: white;
+    background-color: tomato;
     font-weight: bold;
 }

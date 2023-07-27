@@ -20,25 +20,27 @@
     justify-content: space-between;
 }
 
-.card h4 {
-    color: var(--mainColorLight);
-}
-
 .card img {
     width: 100%;
     object-fit: cover;
     border-radius: 50px;
+    margin: 5px 0;
 }
 
-.addFav {
-    color: var(--textColor);
-    padding: 10px 5px;
+.card span {
+    color: #5CE1E6
+}
+
+.DelBtn {
+    padding: 1px 5px;
     background-color: var(--mainColor);
+    color: var(--textColor);
     border-radius: 0 50px 0 50px;
     width: 50%;
 }
 
-.addFav:hover {
-    background-color: var(--secondaryColor);
+.DelBtn:hover {
+    color: white;
+    background-color: tomato;
     font-weight: bold;
 }

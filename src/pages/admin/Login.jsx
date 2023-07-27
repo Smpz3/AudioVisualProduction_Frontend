@@ -1,10 +1,13 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
-import { loginUser } from "../../services/admin.services";
 import styled from "styled-components";
 
+import { loginUser } from "../../services/admin.services";
+
 const Form = styled.form`
+    margin-top:50px;
     color: var(--mainColorLight);
+    margin-bottom: 250px;
 `;
 
 const Input = styled.input`
@@ -25,7 +28,6 @@ const InputBtn = styled.input`
 `;
 
 
-
 const Login = () => {
 
     const { register, handleSubmit } = useForm();
@@ -33,16 +35,13 @@ const Login = () => {
 
     const sendForm = async (values) => {
         const response = await loginUser(values);
-        console.log(response);
-        console.log(values);
 
         if (response.fatal) {
             return alert(response.fatal);
         }
 
         localStorage.setItem('user_token', response.token);
-
-        navigate('/pages/store');
+        navigate('/store');
     };
 
 
@@ -65,7 +64,7 @@ const Login = () => {
         </div>
         <InputBtn className="btn btn-info" type="submit" value="Send" />
 
-    </Form>;
-}
+    </Form>
+};
 
 export default Login;

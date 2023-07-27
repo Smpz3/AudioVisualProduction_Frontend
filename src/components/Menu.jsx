@@ -1,14 +1,17 @@
 import styled from "styled-components";
 import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+
 import '../styles/App.css'
 import { isLogged } from "../services/admin.services";
+import { isAdmin } from "../services/users.services";
 
 const Nav = styled.nav`
   width: 100%;
   border-bottom: 3px solid hotpink;
   margin-bottom: 10px;
 `;
+
 const H1 = styled.h1`
   font-size: 50px; 
   margin-top: 10px; 
@@ -37,22 +40,17 @@ const Li = styled.li`
   }
 `;
 
-
-
 const items = [
-  { path: '/', label: 'Home', logged: false },
-  { path: '/pages/shows', label: 'Shows', logged: false },
-  { path: '/pages/characters', label: 'Characters', logged: false },
-  { path: '/pages/audios', label: 'Audios', logged: false },
-  { path: '/pages/store', label: 'Store', logged: false },
-  { path: '/pages/admin/register', label: 'Register', logged: false },
-  { path: '/pages/admin/login', label: 'Login', logged: false },
-  { path: '/pages/usersList', label: 'UsersList', logged: true },
-  { path: '/pages/profile', label: 'Profile', logged: true },
+  { path: '/', label: 'Home', always: true },
+  { path: '/shows', label: 'Shows', always: true },
+  { path: '/characters', label: 'Characters', always: true },
+  { path: '/audios', label: 'Audios', always: true },
+  { path: '/store', label: 'Store', always: true },
+  { path: '/register', label: 'Register', logged: false },
+  { path: '/login', label: 'Login', logged: false },
+  { path: '/usersList', label: 'UsersList', logged: true, admin: true },
+  { path: '/profile', label: 'Profile', logged: true },
 ];
-
-
-
 
 const Menu = () => {
 
@@ -60,36 +58,43 @@ const Menu = () => {
 
   const onLogout = () => {
 
-    if (localStorage.getItem('user_token')) {
-
-      const drop = window.confirm('You are going to logout. Are you sure?');
-
-      if (drop) {
-        localStorage.removeItem('user_token');
-        navigate('/pages/');
-        navigate(0);
-      };
+    const drop = window.confirm('You are going to logout. Are you sure?');
+    if (drop) {
+      localStorage.removeItem('user_token');
+      navigate('/');
+      navigate(0);
     };
-
   };
+
 
   return <div className="container">
     <Nav>
       <Ul>
         <H1 style={{ color: 'var(--secondaryColor)' }}>The Brightside Productions LLC </H1>
-        {items.map((items, index) => {
-          if (isLogged() === items.logged) {
+        {items.filter((item) => item.always).map((item, index) => {
+          return <Link key={index} to={item.path}>
+            <Li>{item.label}</Li>
+          </Link>
+        })}
+        {items.filter((item) => item.logged !== null).map((item, index) => {
+          if (isLogged() === item.logged) {
 
-            return <Link key={index} to={items.path}>
-              <Li>{items.label}</Li>
+            if (item.admin && isAdmin() !== item.admin) {
+              return null
+            }
+            return <Link key={index} to={item.path}>
+              <Li>{item.label}</Li>
             </Link>
           }
+          return null
         })}
-        <NavLink onClick={onLogout}>
-          <Li>Logout</Li>
-        </NavLink>
+        {isLogged() && (
+          <NavLink onClick={onLogout}>
+            <Li>Logout</Li>
+          </NavLink>
+        )}
       </Ul>
-    </Nav>;
+    </Nav>
   </div>
-}
+};
 export default Menu; 

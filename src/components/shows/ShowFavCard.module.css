@@ -8,37 +8,37 @@
 .card {
     background-color: var(--mainColor);
     color: var(--mainColorLight);
-    width: 30%;
+    width: 90%;
     min-width: 200px;
-    max-width: 250px;
     padding: 20px;
     border: 2px solid var(--mainColorLight);
     border-radius: 0 50px 0 50px;
-    gap: 10px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.card h4 {
-    color: var(--mainColorLight);
+.div {
+    margin: 10px;
+    line-height: 1;
+
 }
 
-.card img {
-    width: 100%;
-    object-fit: cover;
-    border-radius: 50px;
+.card span {
+    color: #5CE1E6
 }
 
-.addFav {
-    color: var(--textColor);
-    padding: 10px 5px;
+.DelBtn {
+    padding: 3px 5px;
     background-color: var(--mainColor);
+    color: var(--textColor);
     border-radius: 0 50px 0 50px;
     width: 50%;
 }
 
-.addFav:hover {
-    background-color: var(--secondaryColor);
+.DelBtn:hover {
+    color: white;
+    background-color: tomato;
     font-weight: bold;
 }

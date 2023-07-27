@@ -1,14 +1,25 @@
 import { Navigate, Outlet } from "react-router-dom";
+import { isAdmin } from "../services/users.services";
 
 
 const ProtectedRoute = ({ redirectPath }) => {
 
-    if (!localStorage.getItem('gym_token')) {
-        alert('Protected route. You must be logged in.')
+    if (!localStorage.getItem('user_token')) {
+        alert('Protected route. You must be logged in.');
         return <Navigate to={redirectPath} />
     };
 
-    return <Outlet />;
+    return <Outlet />
 };
 
-export default ProtectedRoute;
+const ProtectedAdminRoute = ({ redirectPath }) => {
+
+    if (!isAdmin()) {
+        alert('Protected route. You must be admin.');
+        return <Navigate to={redirectPath} />
+    }
+
+    return <Outlet />
+};
+
+export { ProtectedRoute, ProtectedAdminRoute };

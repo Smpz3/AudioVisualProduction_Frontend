@@ -1,8 +1,11 @@
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
 
-import { registerUser } from "../../services/admin.services";
+import { getById, updateUser } from "../../services/users.services";
+import { deleteUser } from "../../services/admin.services";
+
 
 const Form = styled.form`
     margin-top:50px;
@@ -27,26 +30,38 @@ const InputBtn = styled.input`
 `;
 
 
-const Register = () => {
+const UserDetails = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
+    const { userID } = useParams();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        getById(userID)
+            .then((data) => {
+                [data] = data
+                reset(data);
+            })
+            .catch(error => console.log(error));
+
+    }, []);
 
     const sendForm = async (values) => {
 
-        const response = await registerUser(values);
+        const data = await updateUser(userID, values);
 
-        if (response.fatal) {
-            return alert(response.fatal);
-        }
+        if (data.error) {
+            // Error management
+            alert('Error in the edition, check your data.');
+        };
 
-        alert('Register Success');
+        // Success edition management
+        alert('Updated successfully :)');
 
-        navigate('/login');
-
+        navigate('/usersList');
     };
 
-    return <Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
+    return <div>{userID}<Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
         <div className="mb-3">
             <label className="form-label">Name</label>
             <Input
@@ -103,17 +118,13 @@ const Register = () => {
                 {...register('address')}
             />
         </div>
-        <div className="mb-3">
-            <label className="form-label">Password</label>
-            <Input
-                type="password"
-                className="form-control"
-                {...register('password')}
-            />
-        </div>
-        <InputBtn className="btn btn-info" type="submit" value="Send" />
+        <InputBtn className="btn btn-info" type="submit" value="Accept Changes" />
 
-    </Form>
-};
+        <InputBtn className="btn btn-danger" value="Delete user" onClick={async () => {
+            await deleteUser(userID);
+            navigate('/usersList');
+        }} />
 
-export default Register;
+    </Form></div>
+}
+export default UserDetails;

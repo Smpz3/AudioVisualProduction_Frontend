@@ -1,8 +1,10 @@
-import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import styled from "styled-components";
+import { useForm } from "react-hook-form";
+import { useEffect, useState } from "react";
 
-import { registerUser } from "../../services/admin.services";
+import { deleteProfile, getProfile, updateUser } from "../../services/users.services";
+
 
 const Form = styled.form`
     margin-top:50px;
@@ -27,26 +29,41 @@ const InputBtn = styled.input`
 `;
 
 
-const Register = () => {
+const UpdateProfile = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
+
     const navigate = useNavigate();
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+
+        getProfile()
+            .then((data) => {
+                setUser(data)
+                reset(data);
+            })
+            .catch(error => console.log(error));
+    }, []);
 
     const sendForm = async (values) => {
+        const data = await updateUser(user.id, values);
+        console.log(user.id);
 
-        const response = await registerUser(values);
+        // Error management
+        if (data.error) {
+            alert('Error in the edition, check your data.');
+        };
 
-        if (response.fatal) {
-            return alert(response.fatal);
-        }
+        // Success edition management
+        alert('Updated successfully :)');
 
-        alert('Register Success');
+        navigate('/profile');
+        navigate(0);
+    }
 
-        navigate('/login');
 
-    };
-
-    return <Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
+    return <div><Form onSubmit={handleSubmit(sendForm)} className="col-md-6 col-12 offset-md-3">
         <div className="mb-3">
             <label className="form-label">Name</label>
             <Input
@@ -111,9 +128,14 @@ const Register = () => {
                 {...register('password')}
             />
         </div>
-        <InputBtn className="btn btn-info" type="submit" value="Send" />
+        <InputBtn className="btn btn-info" type="submit" value="Accept Changes" />
 
-    </Form>
-};
+        <InputBtn className="btn btn-danger" value="Delete my user" onClick={async () => {
+            await deleteProfile(user.id);
+            navigate('/profile');
+        }} />
 
-export default Register;
+    </Form></div>
+}
+
+export default UpdateProfile;
