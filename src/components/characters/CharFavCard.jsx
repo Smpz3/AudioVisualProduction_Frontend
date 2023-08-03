@@ -7,7 +7,7 @@ const CharFavCard = () => {
 
     let { data, status } = useQuery('charFavs', getUserCharacters);
 
-    if (status === 'loading') return <h2>Getting Characters..</h2>;
+    if (status === 'loading...') return <h2>Getting Characters..</h2>;
     if (status === 'error') return <h2>Download failed</h2>;
 
     return <div className={classes.card}>
